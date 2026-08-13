@@ -16,9 +16,10 @@ Repositorio de trabajo de la asignatura: plan del semestre y material por experi
 
 - [Plan del semestre](./Plan%20Semestre%20Seguridad%20y%20Calidad%20en%20el%20Desarrollo%20de%20Software.md)
 
-## Estructura
+## Material de la EA1
 
-- `EA1 - Diseno de Planes y Estrategias de Pruebas.md` → guía detallada de la primera experiencia: indicadores, actividades, evaluaciones formativas y parciales (EP1 y EP2), checklist y referencias.
-- A medida que avances, agrega aquí los materiales de cada EA y las entregas del caso semestral.
+- [Guía de la EA1](./EA1%20-%20Diseno%20de%20Planes%20y%20Estrategias%20de%20Pruebas.md) → indicadores IL1.1–IL1.5, actividades, evaluaciones (EP1/EP2), checklist
+- [Clase 1 · Conceptos Fundamentales](./EA1%20-%20Clase%201%20-%20Conceptos%20Fundamentales.md) → calidad, seguridad, cumplimiento; leyes 21.663 y 21.719; ISO 27001 y 25010
+- [Actividad 1.1.2 · Identificando Calidad, Seguridad y Cumplimiento](./EA1%20-%20Actividad%201.1.2%20-%20Identificando%20Calidad,%20Seguridad%20y%20Cumplimiento.md) → taller IL1.1 con respuestas propuestas
 
 > Plan tentativo de 16 semanas. Confirma fechas y ponderaciones en AVA.
