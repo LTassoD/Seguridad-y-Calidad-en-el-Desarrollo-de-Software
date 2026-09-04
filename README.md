@@ -24,4 +24,9 @@ Repositorio de trabajo de la asignatura: plan del semestre y material por experi
 - [Actividad 1.2.2 · Casos de prueba funcionales y no funcionales](./EA1%20-%20Actividad%201.2.2%20-%20Casos%20de%20prueba%20funcionales%20y%20no%20funcionales.md) → taller IL1.2 con respuestas propuestas
 - [Actividad 1.3.2 · Análisis de casos de incumplimiento legal y regulatorio](./EA1%20-%20Actividad%201.3.2%20-%20Analisis%20de%20casos%20de%20incumplimiento%20legal%20y%20regulatorio.md) → taller IL1.3 con respuestas propuestas
 
+## Evaluación Parcial 1 (17 %) — Sistema de Gestión Atlas
+
+- [Informe · Plan de pruebas de Atlas](./EP1%20-%20Informe%20Atlas%20-%20Plan%20de%20Pruebas.md) → informe completo siguiendo la plantilla oficial (introducción, criterios, plan, recursos y 5 casos de prueba con trazabilidad)
+- [Guía de estudio para el cuestionario](./EP1%20-%20Guia%20de%20estudio%20para%20el%20cuestionario.md) → resumen de calidad, seguridad, cumplimiento, leyes, estándares y herramientas
+
 > Plan tentativo de 16 semanas. Confirma fechas y ponderaciones en AVA.
