@@ -5,9 +5,9 @@
 **Sección: XX**
 
 **Integrantes:**
-- Nombre Apellido Alumno 1
-- Nombre Apellido Alumno 2
-- Nombre Apellido Alumno 3
+- Luis Tasso
+- Miguel Arredondo
+- Nicolas Iturrieta
 
 ---
 
