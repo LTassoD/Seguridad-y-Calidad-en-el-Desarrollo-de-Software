@@ -2,7 +2,10 @@
 ## Sistema de Gestión Atlas — Plan de Pruebas (Evaluación Parcial N.º 1)
 
 **ISY1102 · Seguridad y calidad en el desarrollo de software**
-**Sección: XX**
+**Carrera:** Ingeniería en Desarrollo de Software
+**Sección:** XX
+
+**Docente:** Christian Rodrigo Alvarez Lobos
 
 **Integrantes:**
 - Luis Tasso
