@@ -3,7 +3,7 @@
 
 **ISY1102 · Seguridad y calidad en el desarrollo de software**
 **Carrera:** Ingeniería en Desarrollo de Software
-**Sección:** XX
+**Sección:** 002V
 
 **Docente:** Christian Rodrigo Alvarez Lobos
 
