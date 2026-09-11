@@ -1,21 +1,46 @@
-# Informe de Seguridad y Calidad en el Desarrollo de Software
-## Sistema de Gestión Atlas — Plan de Pruebas (Evaluación Parcial N.º 1)
+# INFORME DE SEGURIDAD Y CALIDAD
+# EN EL DESARROLLO DE SOFTWARE
 
-**ISY1102 · Seguridad y calidad en el desarrollo de software**
+## Plan de Pruebas — Sistema de Gestión Atlas
+
+### Evaluación Parcial N.º 1 · ISY1102
+
+---
+
 **Carrera:** Ingeniería en Desarrollo de Software
+**Asignatura:** Seguridad y Calidad en el Desarrollo de Software (ISY1102)
 **Sección:** 002V
-
 **Docente:** Christian Rodrigo Alvarez Lobos
-**Fecha:** [completar fecha de entrega]
+**Fecha de entrega:** [completar]
 
 **Integrantes:**
 - Luis Tasso
 - Miguel Arredondo
 - Nicolas Iturrieta
 
----
+<!-- pagebreak -->
 
-# INFORME DE SEGURIDAD Y CALIDAD DE SOFTWARE
+# ÍNDICE
+
+1. Introducción
+2. Criterios de calidad, seguridad y cumplimiento normativo
+3. Marco de referencia y estándares aplicables
+4. Plan de pruebas
+   4.1 Objetivos del plan de pruebas
+   4.2 Alcance del plan de pruebas
+   4.3 Estrategia de pruebas
+   4.4 Tipos de prueba y justificación
+   4.5 Criterios de aceptación
+   4.6 Herramientas utilizadas
+   4.7 Cronograma de ejecución
+5. Recursos necesarios para la ejecución de pruebas
+6. Diseño de casos de prueba
+7. Matriz de trazabilidad
+8. Análisis de cobertura del plan (IE5)
+9. Conclusiones y análisis preliminar
+10. Referencias
+
+<!-- pagebreak -->
 
 ## 1. Introducción
 
@@ -54,9 +79,22 @@ Conforme a **ISO/IEC 27001** y a los requerimientos NFR‑SEG del ERS:
 - **ISO/IEC 25010**: marco de calidad del producto.
 - **Accesibilidad e inclusión digital**: cumplimiento básico de estándares WCAG y normativa de inclusión, evitando discriminación de usuarios con discapacidad.
 
-## 3. Plan de pruebas
+## 3. Marco de referencia y estándares aplicables
 
-### 3.1 Objetivos del plan de pruebas
+Para garantizar la calidad del proceso y la coherencia con la industria, el plan de pruebas se basa en los siguientes marcos y normas:
+
+- **ISO/IEC/IEEE 29119 (Ingeniería de software — Pruebas de software):** establece el proceso de pruebas (política, estrategia, diseño, ejecución y gestión de incidentes) y la terminología de los tipos de prueba y casos de prueba utilizados en este informe.
+- **ISO/IEC 25010 (SQuaRE):** modelo de calidad del producto que define las características de adecuación funcional, rendimiento, usabilidad, seguridad, compatibilidad, mantenibilidad y confiabilidad evaluadas en los criterios de la sección 2.1.
+- **ISO/IEC 27001 (SGSI):** referente de seguridad de la información; sus controles del Anexo A (A.9.4 Control de acceso, A.10 Criptografía, A.12.4 Registro de actividad, A.18.1 Requisitos legales) sustentan los criterios de seguridad y auditoría del plan.
+- **OWASP Top 10:** identifica los riesgos de seguridad web más relevantes (control de acceso roto, malas configuraciones, fallas criptográficas, inyección) que orientan las pruebas de seguridad dinámicas y estáticas (sección 4.4 y casos CP‑02 y CP‑05).
+- **ISTQB (International Software Testing Qualifications Board):** sus fundamentos de pruebas (niveles de prueba, técnicas de diseño de casos, criterios de entrada/salida) estructuran la estrategia y la ejecución descritas en la sección 4.3.
+- **Ley 19.628 y Ley 21.719 (Chile):** protección y tratamiento de datos personales, que condicionan los criterios de cumplimiento normativo (sección 2.3) y los casos de prueba orientados a la protección de datos sensibles.
+
+El uso coordinado de estos marcos garantiza trazabilidad entre los criterios (sección 2), la estrategia (sección 4) y los casos de prueba diseñados (sección 6), fortaleciendo el respaldo técnico del plan frente a la evaluación (criterio de coherencia y marco profesional).
+
+## 4. Plan de pruebas
+
+### 4.1 Objetivos del plan de pruebas
 
 **Objetivo general:** verificar que el Sistema de Gestión Atlas cumple con los requerimientos funcionales y no funcionales definidos en el ERS, garantizando su calidad, seguridad y conformidad con la normativa vigente de protección de datos, antes de su puesta en producción.
 
@@ -66,7 +104,7 @@ Conforme a **ISO/IEC 27001** y a los requerimientos NFR‑SEG del ERS:
 - Detectar y evidenciar vulnerabilidades de seguridad del código fuente (control de acceso, cifrado, secretos) antes de la liberación.
 - Demostrar la trazabilidad entre requerimientos, casos de prueba y resultados para sustentar auditorías de cumplimiento.
 
-### 3.2 Alcance del plan de pruebas
+### 4.2 Alcance del plan de pruebas
 
 **Dentro del alcance:**
 - Módulos funcionales de Atlas: autenticación y sesión, registro de usuarios y creación de empresa, gestión de clientes, contratos y documentos, usuarios y roles, y registro de auditoría.
@@ -78,7 +116,7 @@ Conforme a **ISO/IEC 27001** y a los requerimientos NFR‑SEG del ERS:
 - Pruebas de aceptación de usuarios finales en producción.
 - Modificaciones correctivas del código (solo se reportan los hallazgos).
 
-### 3.3 Estrategia de pruebas
+### 4.3 Estrategia de pruebas
 
 **Enfoque: mixto (manual y automatizado).** Se combina la ejecución manual para pruebas exploratorias y de usabilidad con la automatización de pruebas funcionales, de regresión, de rendimiento y de seguridad.
 
@@ -104,7 +142,7 @@ Conforme a **ISO/IEC 27001** y a los requerimientos NFR‑SEG del ERS:
 
 **Criterios de salida:** todos los casos de prueba críticos (P1/P2) ejecutados; defectos críticos corregidos y verificados; sin vulnerabilidades críticas por medio de los escaneos; evidencias documentadas y trazables a los requerimientos.
 
-### 3.4 Tipos de prueba y justificación
+### 4.4 Tipos de prueba y justificación
 
 - **Pruebas funcionales (¿qué hace?):** verifican que cada operación del sistema cumple el requisito. Validan login, registro de usuario y creación de empresa, CRUD de clientes, creación/edición/eliminación de contratos, carga y descarga de documentos, gestión de usuarios y roles, y registro de auditoría.
 - **Pruebas no funcionales (¿cómo lo hace?):**
@@ -116,7 +154,7 @@ Conforme a **ISO/IEC 27001** y a los requerimientos NFR‑SEG del ERS:
 - **Pruebas de integración:** verificación de que el frontend React, la API Express y la base de datos PostgreSQL interactúan correctamente (flujo completo cliente → contrato → documento).
 - **Pruebas de seguridad:** análisis estático (revisión de código), análisis dinámico (OWASP ZAP) y pruebas de penetración específicas sobre los hallazgos del código fuente.
 
-### 3.5 Criterios de aceptación (transversales)
+### 4.5 Criterios de aceptación (transversales)
 
 Un caso de prueba se considera aprobado cuando:
 
@@ -125,7 +163,7 @@ Un caso de prueba se considera aprobado cuando:
 - **Seguridad:** no se detectan vulnerabilidades críticas (SQL injection, XSS, CSRF, acceso no autorizado a recursos de otras empresas) y el control de acceso por rol funciona correctamente.
 - **Reglas de negocio:** se respetan RB‑2 (solo usuarios vinculados ven datos de la empresa), RB‑3 (un contrato se asocia a un solo cliente), RB‑4 (editor solo lectura) y RB‑5 (administrador con control completo).
 
-### 3.6 Herramientas utilizadas
+### 4.6 Herramientas utilizadas
 
 | Herramienta | Uso en el plan | Justificación |
 |---|---|---|
@@ -136,7 +174,7 @@ Un caso de prueba se considera aprobado cuando:
 | SonarQube / ESLint | Análisis estático de código | Detecta malas prácticas, vulnerabilidades y deuda técnica en frontend y backend |
 | Docker | Despliegue del entorno | Reproduce el ambiente completo (frontend, backend, PostgreSQL) de forma aislada y reproducible |
 
-### 3.7 Cronograma de ejecución del plan de pruebas
+### 4.7 Cronograma de ejecución del plan de pruebas
 
 La ejecución de las pruebas se distribuye de la siguiente forma, dentro de las 3 horas pedagógicas asignadas al encargo:
 
@@ -149,15 +187,15 @@ La ejecución de las pruebas se distribuye de la siguiente forma, dentro de las 
 | Ejecución de seguridad | Análisis estático, escaneo dinámico (OWASP ZAP) y verificación de control de acceso | 20 min | Hallazgos de vulnerabilidades |
 | Documentación | Consolidación de resultados, evidencias y elaboración del informe final | 10 min | Informe final para entrega en AVA |
 
-## Recursos necesarios para la ejecución de pruebas
+## 5. Recursos necesarios para la ejecución de pruebas
 
 - **Recursos humanos:** un líder de QA / ingeniero de calidad, un tester funcional, un tester de seguridad y un tester de rendimiento; colaboración con el equipo de desarrollo para la corrección de defectos y con el área legal para la validación del cumplimiento normativo.
 - **Recursos técnicos:** equipos con Node.js, npm, Docker, Git y navegadores modernos; herramientas de prueba (Postman, Selenium, JMeter/Locust, OWASP ZAP, SonarQube); entorno de desarrollo y de QA aislado de producción.
 - **Entorno de prueba:** ambiente QA local (Docker) con datos de prueba ficticios de clientes, contratos y usuarios; no utilizar datos reales para evitar comprometer información personal.
 
-## 4. Diseño de casos de prueba
+## 6. Diseño de casos de prueba
 
-A continuación se presentan cinco casos de prueba representativos que cubren requerimientos funcionales y no funcionales del ERS. Cada caso detalla ID, descripción, requerimiento asociado, precondiciones, pasos, resultado esperado, criterio de aceptación y datos de prueba.
+A continuación se presentan cinco casos de prueba representativos que cubren requerimientos funcionales y no funcionales del ERS. Cada caso detalla ID, descripción, requerimiento asociado, precondiciones, pasos, resultado esperado, criterio de aceptación y datos de prueba. El detalle por caso se presenta en formato tabular para su lectura y trazabilidad.
 
 ### CP‑01 · Inicio de sesión y obtención de token (Autenticación)
 
@@ -241,7 +279,31 @@ A continuación se presentan cinco casos de prueba representativos que cubren re
 
 ---
 
-## Conclusiones del análisis preliminar
+## 7. Matriz de trazabilidad
+
+La siguiente matriz vincula cada caso de prueba con los requerimientos del ERS y los criterios de calidad/seguridad, garantizando cobertura bidireccional (cada requerimiento crítico cuenta con al menos un caso que lo valida).
+
+| Caso de prueba | Requerimiento ERS | Tipo de prueba | Objetivo validado |
+|---|---|---|---|
+| CP‑01 | RF‑1 · RF‑1.1 | Funcional | Autenticación y emisión de token de sesión |
+| CP‑02 | RF‑3.2 · RB‑4 · NFR‑SEG‑4 | Funcional / Seguridad | Control de acceso por rol en el backend |
+| CP‑03 | RF‑6 · RF‑6.1 | Funcional | Registro de auditoría de acciones críticas |
+| CP‑04 | NFR‑PERF‑1 · NFR‑PERF‑2 · NFR‑PERF‑3 | No funcional (Rendimiento / Carga) | Cumplimiento de umbrales de rendimiento |
+| CP‑05 | NFR‑SEG‑4 · NFR‑SEG‑9 · RB‑2 | No funcional (Seguridad) | Prevención de acceso no autorizado y Broken Access Control |
+
+## 8. Análisis de cobertura del plan (IE5)
+
+El plan de pruebas diseñado da cobertura a los requerimientos funcionales y no funcionales del ERS y a los estándares técnicos y legales aplicables, de la siguiente forma:
+
+- **Cobertura funcional:** los cinco casos abarcan los seis módulos de RF‑1 a RF‑6 (autenticación, usuarios/empresas, clientes, contratos/documentos, usuarios y roles, y auditoría), priorizando las funciones críticas de negocio.
+- **Cobertura no funcional:** se incorporan pruebas de rendimiento y carga (NFR‑PERF), seguridad (NFR‑SEG), usabilidad y accesibilidad (NFR‑USAB), compatibilidad (NFR‑COMPAT) y disponibilidad (NFR‑DIS) en la estrategia y en los casos CP‑04 y CP‑05.
+- **Cobertura de reglas de negocio:** las reglas RB‑2 (acceso por vinculación a empresa), RB‑3 (un contrato por cliente), RB‑4 (editor solo lectura) y RB‑5 (administrador con control completo) se verifican explícitamente en CP‑02 y CP‑05.
+- **Cobertura normativa:** los criterios de la sección 2.3 (Ley 19.628, Ley 21.719, ISO/IEC 27001, ISO/IEC 25010, WCAG) se traducen en criterios de aceptación transversales (sección 4.5) y en observaciones de cumplimiento de cada caso.
+- **Trazabilidad y evidencia:** cada caso referencia el código del requerimiento en el ERS y registra el resultado esperado y la observación de hallazgos, lo que permite auditoría del proceso de pruebas y sustentar la liberación del software.
+
+Como resultado, el plan cubre de manera balanceada las dimensiones de calidad, seguridad y cumplimiento normativo exigidas por la evaluación, y los hallazgos preliminares del código fuente (sección 9) demuestran su necesidad y aplicabilidad real al caso.
+
+## 9. Conclusiones del análisis preliminar
 
 El sistema Atlas presenta una base funcional clara y un ERS bien definido, pero el análisis del código fuente revela **hallazgos de seguridad relevantes** que el plan de pruebas debe validar y que requieren corrección previa a producción:
 
@@ -252,3 +314,14 @@ El sistema Atlas presenta una base funcional clara y un ERS bien definido, pero 
 5. **CORS abierto** (`app.use(cors())`) sin restricción de orígenes, ampliando la superficie de ataque (CSRF).
 
 Estos hallazgos demuestran la necesidad del plan de pruebas aquí diseñado y sirven de evidencia para el apartado de cobertura y coherencia frente a estándares técnicos y legales del informe.
+
+## 10. Referencias
+
+- ISO/IEC 25010:2011, Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — System and software quality models.
+- ISO/IEC 27001:2022, Information security, cybersecurity and privacy protection — Information security management systems — Requirements.
+- ISO/IEC/IEEE 29119, Software and systems engineering — Software testing (Parts 1, 2 y 3).
+- OWASP Foundation, OWASP Top 10:2021, A01 Broken Access Control; A02 Cryptographic Failures; A07 Identification and Authentication Failures.
+- ISTQB, International Software Testing Qualifications Board — Foundation Level Syllabus (CTFL).
+- Ley N.º 19.628, Sobre protección de la vida privada (Chile, 1999).
+- Ley N.º 21.719, Modifica la Ley 19.628 para adecuar la normativa nacional a los estándares internacionales en materia de protección de datos personales (Chile, 2024).
+- Especificación de Requerimientos de Software (ERS) — Sistema de Gestión Atlas (Caso A), material entregado en la evaluación.
