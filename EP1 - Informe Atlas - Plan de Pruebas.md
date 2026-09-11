@@ -6,6 +6,7 @@
 **Sección:** 002V
 
 **Docente:** Christian Rodrigo Alvarez Lobos
+**Fecha:** [completar fecha de entrega]
 
 **Integrantes:**
 - Luis Tasso
@@ -55,7 +56,29 @@ Conforme a **ISO/IEC 27001** y a los requerimientos NFR‑SEG del ERS:
 
 ## 3. Plan de pruebas
 
-### 3.1 Estrategia de pruebas
+### 3.1 Objetivos del plan de pruebas
+
+**Objetivo general:** verificar que el Sistema de Gestión Atlas cumple con los requerimientos funcionales y no funcionales definidos en el ERS, garantizando su calidad, seguridad y conformidad con la normativa vigente de protección de datos, antes de su puesta en producción.
+
+**Objetivos específicos:**
+- Validar el correcto funcionamiento de los módulos de autenticación, clientes, contratos, documentos, usuarios/roles y auditoría (RF‑1 a RF‑6).
+- Comprobar la cobertura de los criterios de rendimiento (NFR‑PERF), seguridad (NFR‑SEG), usabilidad y accesibilidad (NFR‑USAB) y compatibilidad (NFR‑COMPAT).
+- Detectar y evidenciar vulnerabilidades de seguridad del código fuente (control de acceso, cifrado, secretos) antes de la liberación.
+- Demostrar la trazabilidad entre requerimientos, casos de prueba y resultados para sustentar auditorías de cumplimiento.
+
+### 3.2 Alcance del plan de pruebas
+
+**Dentro del alcance:**
+- Módulos funcionales de Atlas: autenticación y sesión, registro de usuarios y creación de empresa, gestión de clientes, contratos y documentos, usuarios y roles, y registro de auditoría.
+- Requisitos no funcionales de seguridad, rendimiento, usabilidad, accesibilidad, disponibilidad y compatibilidad definidos en el ERS.
+- Análisis de calidad y seguridad del código fuente provisto (Caso A).
+
+**Fuera del alcance:**
+- Pruebas sobre sistemas externos no provistos en el caso (pasarelas de pago u otros servicios de terceros no incluidos).
+- Pruebas de aceptación de usuarios finales en producción.
+- Modificaciones correctivas del código (solo se reportan los hallazgos).
+
+### 3.3 Estrategia de pruebas
 
 **Enfoque: mixto (manual y automatizado).** Se combina la ejecución manual para pruebas exploratorias y de usabilidad con la automatización de pruebas funcionales, de regresión, de rendimiento y de seguridad.
 
@@ -81,7 +104,7 @@ Conforme a **ISO/IEC 27001** y a los requerimientos NFR‑SEG del ERS:
 
 **Criterios de salida:** todos los casos de prueba críticos (P1/P2) ejecutados; defectos críticos corregidos y verificados; sin vulnerabilidades críticas por medio de los escaneos; evidencias documentadas y trazables a los requerimientos.
 
-### 3.2 Tipos de prueba y justificación
+### 3.4 Tipos de prueba y justificación
 
 - **Pruebas funcionales (¿qué hace?):** verifican que cada operación del sistema cumple el requisito. Validan login, registro de usuario y creación de empresa, CRUD de clientes, creación/edición/eliminación de contratos, carga y descarga de documentos, gestión de usuarios y roles, y registro de auditoría.
 - **Pruebas no funcionales (¿cómo lo hace?):**
@@ -93,7 +116,7 @@ Conforme a **ISO/IEC 27001** y a los requerimientos NFR‑SEG del ERS:
 - **Pruebas de integración:** verificación de que el frontend React, la API Express y la base de datos PostgreSQL interactúan correctamente (flujo completo cliente → contrato → documento).
 - **Pruebas de seguridad:** análisis estático (revisión de código), análisis dinámico (OWASP ZAP) y pruebas de penetración específicas sobre los hallazgos del código fuente.
 
-### 3.3 Criterios de aceptación (transversales)
+### 3.5 Criterios de aceptación (transversales)
 
 Un caso de prueba se considera aprobado cuando:
 
@@ -102,7 +125,7 @@ Un caso de prueba se considera aprobado cuando:
 - **Seguridad:** no se detectan vulnerabilidades críticas (SQL injection, XSS, CSRF, acceso no autorizado a recursos de otras empresas) y el control de acceso por rol funciona correctamente.
 - **Reglas de negocio:** se respetan RB‑2 (solo usuarios vinculados ven datos de la empresa), RB‑3 (un contrato se asocia a un solo cliente), RB‑4 (editor solo lectura) y RB‑5 (administrador con control completo).
 
-### 3.4 Herramientas utilizadas
+### 3.6 Herramientas utilizadas
 
 | Herramienta | Uso en el plan | Justificación |
 |---|---|---|
@@ -112,6 +135,19 @@ Un caso de prueba se considera aprobado cuando:
 | OWASP ZAP | Pruebas de seguridad dinámica | Escanea vulnerabilidades web (inyección, XSS, configuraciones inseguras) |
 | SonarQube / ESLint | Análisis estático de código | Detecta malas prácticas, vulnerabilidades y deuda técnica en frontend y backend |
 | Docker | Despliegue del entorno | Reproduce el ambiente completo (frontend, backend, PostgreSQL) de forma aislada y reproducible |
+
+### 3.7 Cronograma de ejecución del plan de pruebas
+
+La ejecución de las pruebas se distribuye de la siguiente forma, dentro de las 3 horas pedagógicas asignadas al encargo:
+
+| Etapa | Actividad | Duración estimada | Entregable |
+|---|---|---|---|
+| Preparación | Despliegue del entorno (Docker), carga de datos de prueba y revisión del ERS | 30 min | Entorno QA operativo |
+| Diseño | Definición y revisión de los casos de prueba y su trazabilidad con requerimientos | 40 min | Casos CP‑01 a CP‑05 definidos |
+| Ejecución funcional | Pruebas funcionales de autenticación, clientes, contratos, usuarios y auditoría | 50 min | Resultados funcionales registrados |
+| Ejecución no funcional | Pruebas de rendimiento/carga, usabilidad y compatibilidad | 30 min | Métricas y reportes |
+| Ejecución de seguridad | Análisis estático, escaneo dinámico (OWASP ZAP) y verificación de control de acceso | 20 min | Hallazgos de vulnerabilidades |
+| Documentación | Consolidación de resultados, evidencias y elaboración del informe final | 10 min | Informe final para entrega en AVA |
 
 ## Recursos necesarios para la ejecución de pruebas
 
