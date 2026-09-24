@@ -27,6 +27,7 @@ Repositorio de trabajo de la asignatura: plan del semestre y material por experi
 ## Material de la EA2
 
 - [Actividad 2.1.2 · Diseño de un Plan de Pruebas Estratégico](./EA2%20-%20Actividad%202.1.2%20-%20Diseno%20de%20un%20Plan%20de%20Pruebas%20Estrategico.md) → plan para banca móvil: caja negra/blanca/híbrido, riesgos V(G)>20, flujo de datos, herramientas, métricas, matriz de trazabilidad, cronograma por riesgo y protocolo de mantenimiento
+- [Guía 2.1.3 · Levantamiento de imágenes en Docker del caso semestral](./EA2%20-%20Guia%202.1.3%20-%20Levantamiento%20de%20imagenes%20en%20Docker%20del%20caso%20semestral.md) → levantamiento real de Atlas (Caso A) con Docker Compose: 3 contenedores, puertos, verificación del frontend y API
 
 ## Evaluación Parcial 1 (17 %) — Sistema de Gestión Atlas
 
