@@ -38,9 +38,10 @@ El sistema no es apto para su lanzamiento en producción: presenta vulnerabilida
 | Casos aprobados (Pass) | 10 (83%) |
 | Casos fallidos (Fail) | 2 |
 | Casos bloqueados | 0 |
-| Defectos abiertos al cierre | 10 (3 Críticos · 4 Mayores · 2 Menores · 1 Observación) |
+| Defectos abiertos al cierre | 11 (3 Críticos · 4 Mayores · 2 Menores · 2 Observaciones) |
 | Vulnerabilidades críticas explotables | 4 confirmadas con evidencia |
 | Problemas análisis estático (ESLint) | 14 (frontend 11 + backend 3) |
+| Resultados análisis estático (SonarQube) | 1 vulnerabilidad BLOCKER · 4 security hotspots · 198 code smells · 1 bug |
 | Tiempo promedio de respuesta con token válido | ~4,0 s (latencia artificial) |
 
 ---
@@ -61,6 +62,7 @@ El sistema no es apto para su lanzamiento en producción: presenta vulnerabilida
 | BUG-008 | **Mayor** | Frontend | Token JWT y datos de usuario almacenados en `localStorage` (AuthContext.jsx:8-16) — robo de sesión ante XSS | Abierto | Revisión estática |
 | BUG-009 | **Menor** | Frontend/Backend | Code smells ESLint: 11 issues frontend (8 × no-unused-vars, 2 × exhaustive-deps, 1 × unused disable) y 3 imports sin uso en backend | Abierto | Análisis estático |
 | BUG-010 | **Observación** | Performance | Latencia artificial de 4 s (delay en auth, clientes, contratos y métricas) degrada la experiencia y facilita lentitud bajo carga | Abierto | FN-02 (4,06 s) |
+| BUG-011 | **Observación** | Deuda técnica | Credenciales de PostgreSQL en código (`db.js:6`). Detectado por SonarQube como vulnerabilidad **BLOCKER** `secrets:S6698` y confirma BUG-004 | Abierto | Anexo E · SonarQube |
 
 ### 3.2 Distribución por severidad
 
@@ -134,6 +136,7 @@ El sistema no es apto para su lanzamiento en producción: presenta vulnerabilida
 7. Oculta del campo `glosa` los detalles internos del motor en errores 500; envolver creaciones en **transacciones**.
 8. Corregir code smells ESLint (variables e imports sin uso) y añadir hook de lint en CI.
 9. Usar **httpOnly/cookie** para la sesión en lugar de `localStorage`.
+10. Configurar un **Quality Gate de SonarQube** que incluya condiciones de seguridad (0 vulnerabilidades BLOCKER/CRITICAL, security rating A) y deuda < 5 %, para que la certificación dependa de la herramienta en CI.
 
 ### 6.1 Próximas auditorías (seguimiento)
 
@@ -232,6 +235,62 @@ El sistema no es apto para su lanzamiento en producción: presenta vulnerabilida
 | Base de datos | PostgreSQL 17 | localhost:15432 (nombre: `atlas`) |
 | Documentación API | Swagger UI (`/docs/`) | http://localhost:4450/docs/ |
 | Método de ejecución | Docker Compose (`docker compose up -d --build`) | — |
+
+### Anexo E · Análisis estático con SonarQube (servidor local :9000)
+
+Se desplegó un servidor **SonarQube 10.6 Community** en Docker (`sonarqube:10.6-community`, puerto 9000) y se ejecutó el análisis con **Sonar Scanner 3.1** (Node, sin JVM adicional) sobre el backend y el frontend de Atlas.
+
+**Métricas de calidad:**
+
+| Métrica | Backend (`atlas`) | Frontend (`atlas-frontend`) |
+|---|---|---|
+| Líneas de código (ncloc) | 1.523 | 5.432 |
+| Bugs | 0 | 1 |
+| Vulnerabilidades | **1** | 0 |
+| Code Smells | 17 | 181 |
+| Security Hotspots | 4 | 0 |
+| Duplicación (%) | 37,0 | 11,1 |
+| Cobertura | 0 % (sin tests) | 0 % |
+| Reliability Rating | A (1.0) | C (3.0) |
+| Security Rating | **E (5.0)** | A (1.0) |
+| Maintainability Rating | A (1.0) | A (1.0) |
+| Quality Gate | OK | OK |
+
+> El **Security Rating E** del backend confirma los problemas de seguridad críticos detectados en las pruebas dinámicas y en la revisión manual. El Quality Gate figura "OK" porque el *Quality Gate* por defecto solo evalúa bugs y debt; ajustamos esta observación en las recomendaciones (agregar condiciones de seguridad).
+
+**Hallazgos relevantes de SonarQube:**
+
+**Backend (`atlas`)**
+- **Vulnerabilidad BLOCKER — `src/db.js:6` (secrets:S6698):** "Make sure this PostgreSQL database password gets changed and removed from the code." Confirma el hallazgo manual de credenciales de BD en la cadena de conexión por defecto.
+- 16 Code Smells **MINOR** (`javascript:S6582`): preferir *optional chaining* en `clients.js`, `contracts.js`, `empresa_usuarios.js`, `metricas.js`.
+- 1 Code Smell **MAJOR** (`users.js:44`, `javascript:S125`): código comentado.
+- 4 Security Hotspots:
+  - `contracts.js:14-15` (`dos`): "Make sure the content length limit is safe here" — límite de tamaño de upload no definido (relacionado con BUG-003).
+  - `app.js:22` (`insecure-conf`): "Make sure that enabling CORS is safe here" (relacionado con BUG-005).
+  - `app.js:20` (`others`): la plataforma expone la versión de Express por defecto.
+
+**Frontend (`atlas-frontend`)**
+- 1 **BUG MAJOR** (`src/index.css:6`, `css:S4649`): falta *generic font family* de respaldo.
+- 1 **Code Smell CRITICAL** (`ClienteForm.jsx:63`, `javascript:S3776`): Complejidad cognitiva 26 vs 15 permitido.
+- 181 Code Smells: 110 × validación de props (`S6774`), 45 × API deprecada (`S1874`, `*.findDOMNode`), 16 × definir componente dentro del padre (`S6478`), etc.
+- 1 BUG de compatibilidad de React 19 (`findDOMNode` deprecado, relacionado con `S1874`).
+
+**Comando usado (evidencia reproducible):**
+
+```bash
+# 1) Servidor SonarQube
+docker run -d --name sonarqube -p 9000:9000 \
+  -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true \
+  -v sonarqube_data:/opt/sonarqube/data \
+  -v sonarqube_logs:/opt/sonarqube/logs \
+  -v sonarqube_extensions:/opt/sonarqube/extensions \
+  sonarqube:10.6-community
+
+# 2) Scan (en BACKEND/ y luego en FRONTEND/, con su sonar-project.properties)
+sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.token=TOKEN
+```
+
+**Conclusiones del análisis estático:** SonarQube encontró **1 vulnerabilidad de severidad Blocker** (credenciales de PostgreSQL en código), **4 security hotspots** que corresponden exactamente a los defectos BUG-003 y BUG-005 detectados en las pruebas dinámicas, y una deuda técnica de mantenibilidad importante en el frontend (181 code smells). Esto refuerza el dictamen **NO CERTIFICADO**.
 
 ---
 
