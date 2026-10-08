@@ -292,6 +292,32 @@ sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.token=TOKEN
 
 **Conclusiones del análisis estático:** SonarQube encontró **1 vulnerabilidad de severidad Blocker** (credenciales de PostgreSQL en código), **4 security hotspots** que corresponden exactamente a los defectos BUG-003 y BUG-005 detectados en las pruebas dinámicas, y una deuda técnica de mantenibilidad importante en el frontend (181 code smells). Esto refuerza el dictamen **NO CERTIFICADO**.
 
+#### Evidencias (capturas de pantalla)
+
+**Dashboard Backend (atlas):**
+![Dashboard backend - atlas](Evidencias%20SonarQube/01-dashboard-backend.png)
+
+**Dashboard Frontend (atlas-frontend):**
+![Dashboard frontend - atlas-frontend](Evidencias%20SonarQube/02-dashboard-frontend.png)
+
+**Vulnerabilidad BLOCKER (db.js:6):**
+![Vulnerabilidad BLOCKER secrets:S6698 - db.js:6](Evidencias%20SonarQube/03-issues-vulnerabilidad-db.png)
+
+**Code Smells Backend:**
+![Code Smells Backend](Evidencias%20SonarQube/04-issues-code-smells-backend.png)
+
+**Security Hotspots:**
+![Security Hotspots](Evidencias%20SonarQube/05-security-hotspots.png)
+
+**Issues Frontend:**
+![Issues Frontend](Evidencias%20SonarQube/06-issues-frontend.png)
+
+**Quality Gate (Sonar way):**
+![Quality Gate Sonar way](Evidencias%20SonarQube/07-quality-gate.png)
+
+**Resumen de Proyectos:**
+![Proyectos en SonarQube](Evidencias%20SonarQube/08-projects-overview.png)
+
 ---
 
 *Documento elaborado como entregable de la Evaluación Parcial 3 (EP3) — Verificando la calidad. Su contenido resume la ejecución de pruebas y evidencias levantadas en laboratorio el día de la evaluación.*
