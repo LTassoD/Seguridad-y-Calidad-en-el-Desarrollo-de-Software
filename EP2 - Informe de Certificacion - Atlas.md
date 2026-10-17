@@ -4,13 +4,13 @@
 |---|---|
 | **Proyecto** | Atlas — Plataforma de gestión de clientes y contratos |
 | **Asignatura** | ISY1102 · Seguridad y Calidad en el Desarrollo de Software |
-| **Evaluación** | EP3 · Verificando la calidad (12% · Encargo + defensa) |
+| **Evaluación** | EP2 · Verificando la calidad (12% · Encargo + defensa) |
 | **Alcance** | Módulos probados: Autenticación, Clientes, Contratos, Documentos, Usuarios, Métricas/Dashboard, Auditoría |
 | **Herramientas** | Docker (Atlas en laboratorio), ESLint 9 (análisis estático), curl (pruebas de API), revisión manual de código |
 | **Entorno** | Node 18 / Express 4.19, PostgreSQL 17, React 19 + Vite (contenedores Docker locales) |
 | **Código de informe** | ALT-2026-0001-V1-INICIAL |
 
----
+<!-- pagebreak -->
 
 ## 1. Resumen ejecutivo
 
@@ -320,4 +320,4 @@ sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.token=TOKEN
 
 ---
 
-*Documento elaborado como entregable de la Evaluación Parcial 3 (EP3) — Verificando la calidad. Su contenido resume la ejecución de pruebas y evidencias levantadas en laboratorio el día de la evaluación.*
+*Documento elaborado como entregable de la Evaluación Parcial 2 (EP2) — Verificando la calidad. Su contenido resume la ejecución de pruebas y evidencias levantadas en laboratorio el día de la evaluación.*
