@@ -187,7 +187,7 @@ R: Por alcance y tiempo del encargo. Priorizamos pruebas dirigidas de control de
 
 **P: ¿Qué es un IDOR y cómo lo evidenciaron?**
 
-R: Insecure Direct Object Reference: se accede a un objeto por su identificador sin validar autorización. Lo evidenciamos con `GET /contratos/1` sin cabecera Authorization: el servidor respondió 200 con los datos completos. Lo mismo ocurrió con usuarios, auditoría y roles (SEG-01, SEG-03, SEG-04, SEG-05).
+R: Insecure Direct Object Reference: se accede a un objeto por su identificador sin validar autorización. Lo evidenciamos con `GET /contratos/1` sin cabecera Authorization: el servidor respondió 200 con los datos completos. Lo mismo ocurrió con usuarios, auditoría y roles (SEG-01, SEG-02, SEG-03, SEG-04).
 
 **P: ¿El problema es falta de autenticación o de autorización?**
 
@@ -199,7 +199,7 @@ R: Enviamos el payload `admin' OR '1'='1` en el login. El servidor respondió 40
 
 **P: ¿Por qué aceptar un archivo .exe es crítico?**
 
-R: Porque no hay filtro de tipo MIME ni de extensión en multer: se aceptó el ejecutable y además se sirve como `application/pdf`. Eso permite almacenar y distribuir malware desde la propia plataforma. Se confirmó con SEG-07b, SEG-08b y SEG-11a.
+R: Porque no hay filtro de tipo MIME ni de extensión en multer: se aceptó el ejecutable y además se sirve como `application/pdf`. Eso permite almacenar y distribuir malware desde la propia plataforma. Se confirmó con SEG-07b y SEG-01.
 
 **P: ¿Qué riesgo genera un CORS con asterisco?**
 
@@ -247,7 +247,7 @@ R: Es funcional en su base: 10 de 12 casos aprobados. El problema no es que no f
 
 **P: ¿Qué evidencia respalda el dictamen?**
 
-R: Los resultados de CP-010 y CP-011, las 7 pruebas de seguridad con resultado inseguro, los 4 incidentes CRITICO, la vulnerabilidad BLOCKER de SonarQube y el Security Rating E. Todo está en las secciones 5 y 6 del informe y en los anexos.
+R: Los resultados de CP-010 y CP-011, 7 de las 10 pruebas SEG con resultado inseguro, los 4 incidentes CRITICO, la vulnerabilidad BLOCKER de SonarQube y el Security Rating E. Todo está en las secciones 5 y 6 del informe y en los anexos.
 
 **P: Si tuvieran que repetir el trabajo, ¿qué cambiarían?**
 

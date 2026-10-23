@@ -314,7 +314,7 @@ Se diseñaron y ejecutaron 12 casos de prueba (CP-001 a CP-012) con cobertura de
 | Casos aprobados (Pass) | 10 (83 %) |
 | Casos fallidos (Fail) | 2 |
 | Casos bloqueados | 0 |
-| Pruebas de seguridad complementarias (SEG) | 10 (7 con resultado inseguro) |
+| Pruebas de seguridad complementarias (SEG) | 10 (7 inseguras / 3 conformes) |
 | Incidentes registrados | 11 (4 CRITICO · 5 GRAVE · 1 MODERADO · 1 LEVE) |
 | Problemas análisis estático (ESLint) | 14 (frontend 11 + backend 3) |
 | Resultados análisis estático (SonarQube) | 1 vulnerabilidad BLOCKER · 4 security hotspots · 198 code smells · 1 bug |
@@ -338,7 +338,7 @@ Los dos casos fallidos corresponden a defectos de seguridad CRITICO (CP-010 y CP
 | CP-010 | Subir documento a contrato (archivo `.exe`) | **Falló** | HTTP 201: archivo ejecutable aceptado sin validación (BUG-003) — Anexo B SEG-07b | Seguridad |
 | CP-011 | Acceso a contrato sin token (`GET /contratos/1`) | **Falló** | HTTP 200 con datos del contrato sin autenticación (BUG-001) — Anexo B SEG-01 | Seguridad |
 | CP-012 | Login con intento SQLi (`admin' OR '1'='1`) | Aprobado | HTTP 401; consulta parametrizada lo bloquea — Anexo A | Seguridad |
-| SEG-01 a SEG-13 | Pruebas complementarias de seguridad (acceso sin token, upload, CORS, rate-limit, latencia) | 7 inseguros / 3 conformes | Detalle en Anexo B | Seguridad |
+| SEG-01 a SEG-13 (10 pruebas) | Pruebas complementarias de seguridad (acceso sin token, upload, SQLi, CORS, fuerza bruta) | 7 inseguros / 3 conformes | Detalle en Anexo B | Seguridad |
 | FN-02 | Tiempo de respuesta de `GET /clientes` | No conforme (latencia artificial) | ~4,06 s vs. umbral 300 ms (BUG-010) — Anexo A | No funcional (Rendimiento) |
 
 ### 5.3. Criticidad de incidentes
@@ -356,14 +356,14 @@ Los dos casos fallidos corresponden a defectos de seguridad CRITICO (CP-010 y CP
 
 | CASO / ID | DESCRIPCIÓN | RESULTADO | IMPACTO |
 |---|---|---|---|
-| BUG-001 | Endpoints accesibles sin token (IDOR): `GET /contratos/:id`, `/usuarios/:id`, `/auditoria`, `/roles`, `/empresa-usuarios/:id` | Datos y logs expuestos sin autenticación (CP-011, SEG-01/03/04/05) | CRITICO |
+| BUG-001 | Endpoints accesibles sin token (IDOR): `GET /contratos/:id`, `/usuarios/:id`, `/auditoria`, `/roles`, `/empresa-usuarios/:id` | Datos y logs expuestos sin autenticación (CP-011, SEG-01/02/03/04) | CRITICO |
 | BUG-002 | Credenciales en texto claro y débiles por defecto (`admin/admin`, `editor/editor`); comparación directa sin hash (`auth.js:26`) | Autenticación comprometible; incumple NFR-SEG-2 y Ley 19.628 | CRITICO |
-| BUG-003 | Subida de archivos sin validación de tipo/MIME (multer sin filtro); `.exe` aceptado y servido como PDF | Superficie de ataque para malware (CP-010, SEG-07b/08b/11a) | CRITICO |
+| BUG-003 | Subida de archivos sin validación de tipo/MIME (multer sin filtro); `.exe` aceptado y servido como PDF | Superficie de ataque para malware (CP-010, SEG-07b, SEG-01) | CRITICO |
 | BUG-011 | Credenciales de PostgreSQL en código (`db.js:6`), detectada como vulnerabilidad BLOCKER `secrets:S6698` por SonarQube | Secretos comprometidos en el repositorio; confirma BUG-002/BUG-004 | CRITICO |
-| BUG-004 | `JWT_SECRET` con valor de respaldo `"inseguro"` (`auth.js:7`, replicado en 7 routers) | Tokens falsificables (SEG-09) | GRAVE |
+| BUG-004 | `JWT_SECRET` con valor de respaldo `"inseguro"` (`auth.js:7`, replicado en 7 routers) | Tokens falsificables (revisión manual, `auth.js:7`) | GRAVE |
 | BUG-005 | CORS con `Access-Control-Allow-Origin: *` global (`app.js:22`) | Amplía superficie de ataque CSRF (SEG-12, hotspot SonarQube) | GRAVE |
 | BUG-006 | Ausencia de rate-limit / bloqueo por fuerza bruta en login | Ataque de fuerza bruta viable (SEG-13) | GRAVE |
-| BUG-007 | Errores 500 exponen detalle interno del motor (`glosa`); creaciones no transaccionales | Fuga de información y datos huérfanos (SEG-07/08) | GRAVE |
+| BUG-007 | Errores 500 exponen detalle interno del motor (`glosa`); creaciones no transaccionales | Fuga de información y datos huérfanos (SEG-07b) | GRAVE |
 | BUG-008 | Token JWT y datos de usuario en `localStorage` (`AuthContext.jsx:8-16`) | Robo de sesión ante XSS | GRAVE |
 | BUG-010 | Latencia artificial de 4 s (`delay(4000)`) en operaciones CRUD | Degradación de experiencia; falla NFR-PERF (FN-02: 4,06 s) | MODERADO |
 | BUG-009 | Code smells ESLint: 11 frontend (no-unused-vars, exhaustive-deps) y 3 backend | Deuda técnica sin impacto funcional | LEVE |
@@ -441,16 +441,20 @@ Los dos casos fallidos corresponden a defectos de seguridad CRITICO (CP-010 y CP
 
 | ID Prueba | Prueba | Resultado esperado | Resultado obtenido | Severidad |
 |---|---|---|---|---|
-| SEG-01 | `GET /contratos/1` sin token | 401 | **200 (datos expuestos)** | Crítica |
+| SEG-01 | `GET /contratos/1` y descarga de archivo sin token | 401 | **200 (contrato y PDF con contenido `.exe`)** | Crítica |
+| SEG-02 | `GET /usuarios/1` sin token | 401 | **200 (correo de usuario)** | Crítica |
 | SEG-03 | `GET /auditoria` sin token | 401 | **200 (logs internos)** | Crítica |
 | SEG-04 | `GET /roles` sin token | 401 | **200** | Mayor |
-| SEG-05 | `GET /usuarios/1` sin token | 401 | **200 (correo de usuario)** | Crítica |
-| SEG-07b | Subir archivo `.exe` con token | Rechazo | **201 (aceptado)** | Crítica |
-| SEG-08b | Subir archivo `.html` con token | Rechazo | **201 (aceptado)** | Crítica |
-| SEG-11a | Descargar archivo del contrato ID 5 sin token | 401 | **200, `Content-Type: application/pdf` con contenido `.exe`** | Crítica |
+| SEG-05 | Login con payload SQLi (`admin' OR '1'='1`) | 401 | 401 (consulta parametrizada) | Conforme |
+| SEG-06 | Login con contraseña incorrecta (sin enumeración) | 401 | 401 | Conforme |
+| SEG-07b | Subir archivo `.exe` y `.html` con token | Rechazo 400/415 | **201 (aceptado)** | Crítica |
+| SEG-10 | Acceso con token válido a recurso propio | 200 | 200 | Conforme |
 | SEG-12 | `Origin: http://evil.example.com` | Origen restringido | **`Access-Control-Allow-Origin: *`** | Mayor |
 | SEG-13 | 3 intentos de login fallidos seguidos | Bloqueo/rate-limit | Ningún bloqueo (solo 4 s de espera) | Mayor |
-| SEG-14 | Tiempo de respuesta de listar clientes | < 2 s | ~4,01 s (latencia artificial) | Observación |
+
+**Total: 10 pruebas SEG — 7 inseguras (SEG-01, SEG-02, SEG-03, SEG-04, SEG-07b, SEG-12, SEG-13) y 3 conformes (SEG-05, SEG-06, SEG-10).**
+
+> Las pruebas SEG-08b y SEG-11a se integran como evidencia dentro de SEG-07b y SEG-01, respectivamente. SEG-09 corresponde al hallazgo de `JWT_SECRET` detectado por revisión manual (BUG-004) y no se contabiliza como prueba dinámica independiente. FN-02 (rendimiento) se registra en el Anexo A como prueba no funcional, no como SEG.
 
 ### Anexo C · Análisis estático de código (ESLint 9)
 
