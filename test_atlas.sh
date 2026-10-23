@@ -87,6 +87,7 @@ curl -s -o /dev/null -w "  HTTP %{http_code}\n" \
 
 encabezado "SEG-01 IDOR: GET /contratos/1 y descarga SIN token (esperado 401)"
 curl -s -o /dev/null -w "  contrato: HTTP %{http_code}\n" "$API/contratos/1"
+# ID 5: contrato con archivo adjunto en los datos semilla del entorno de pruebas
 curl -s -o /dev/null -w "  archivo:  HTTP %{http_code}  tipo=%{content_type}\n" \
   "$API/contratos/5/file"
 
