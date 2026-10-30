@@ -69,13 +69,13 @@ La defensa tiene 10 minutos de exposición y 5 minutos de preguntas. La defensa 
 
 > Aplicamos un enfoque mixto: ejecución manual reproducible con curl, análisis estático automatizado y revisión manual del código. La priorización fue por riesgo: primero seguridad —control de acceso, subida de archivos e inyección—, luego la funcionalidad central y al final lo no funcional.
 >
-> Trabajamos en dos ciclos: el Ciclo 1 fue un smoke test de funciones base; si fallaba, deteníamos la ejecución. El Ciclo 2 ejecutó 12 casos funcionales y de seguridad más pruebas complementarias. Los criterios de entrada exigían entorno desplegado, datos semilla y casos revisados; los de salida, el 100 % de los casos críticos ejecutados, sin defectos críticos abiertos y con evidencia registrada.
+> Trabajamos en dos ciclos: el Ciclo 1 fue un smoke test de funciones base; si fallaba, deteníamos la ejecución. El Ciclo 2 ejecutó 14 casos: 12 funcionales y de seguridad, más 2 no funcionales de rendimiento y usabilidad, y pruebas complementarias. Los criterios de entrada exigían entorno desplegado, datos semilla y casos revisados; los de salida, el 100 % de los casos críticos ejecutados, sin defectos críticos abiertos y con evidencia registrada. Cada caso registra fecha, ejecutor y la petición y respuesta real en el Anexo F.
 
 ### Diapositiva 5 · Tipos de prueba (2:40–3:20)
 
 **Mensaje clave:** cada tipo responde a un requisito del ERS.
 
-> Diseñamos cinco tipos de prueba, cada uno justificado por el ERS. Funcionales para validar los requisitos RF-1 a RF-6: login, CRUD de clientes, contratos, usuarios, dashboard y auditoría. De seguridad para control de acceso, uploads, SQLi, CORS y fuerza bruta. De integración para verificar el flujo completo entre frontend, API y base de datos. De rendimiento para comparar los tiempos de respuesta con los umbrales NFR-PERF. Y de usabilidad, en una revisión acotada de los estados de interfaz.
+> Diseñamos cinco tipos de prueba, cada uno justificado por el ERS. Funcionales para validar los requisitos RF-1 a RF-6: login, CRUD de clientes, contratos, usuarios, dashboard y auditoría. De seguridad para control de acceso, uploads, SQLi, CORS y fuerza bruta. De integración para verificar el flujo completo entre frontend, API y base de datos. De rendimiento para comparar los tiempos de respuesta con los umbrales NFR-PERF, con cinco repeticiones por endpoint. Y de usabilidad y accesibilidad, con una lista de verificación sobre el login y una auditoría Lighthouse.
 
 ### Diapositiva 6 · Herramientas (3:20–4:10)
 
@@ -87,13 +87,13 @@ La defensa tiene 10 minutos de exposición y 5 minutos de preguntas. La defensa 
 
 **Mensaje clave:** resultados cuantitativos del ciclo.
 
-> Diseñamos y ejecutamos 12 casos: 10 aprobados, un 83 % de éxito, y 2 fallidos. Los fallos son CP-010, que aceptó un archivo ejecutable en la subida de documentos, y CP-011, que permitió leer datos de contratos sin token. Sumamos 10 pruebas de seguridad complementarias, de las cuales 7 arrojaron resultado inseguro. En total registramos 11 incidentes: 4 críticos, 5 graves, 1 moderado y 1 leve. ESLint reportó 14 problemas y SonarQube, 1 vulnerabilidad BLOCKER, 4 hotspots y 198 code smells. El tiempo de respuesta fue de 4 segundos por una latencia artificial en el código.
+> Diseñamos y ejecutamos 14 casos: 11 aprobados, un 78,6 % de éxito, y 3 fallidos. Los fallos son CP-010, que aceptó un archivo ejecutable en la subida de documentos; CP-011, que permitió leer datos de contratos sin token; y CP-013, que midió el rendimiento. Este último promedió 4,011 segundos en cinco mediciones, frente a un umbral de 300 milisegundos, por una latencia artificial de cuatro segundos en el código. CP-014, de usabilidad, aprobó con observaciones. Sumamos 10 pruebas de seguridad complementarias, de las cuales 7 arrojaron resultado inseguro. En total registramos 12 incidentes: 4 críticos, 6 graves, 1 moderado y 1 leve. ESLint reportó 14 problemas y SonarQube, 1 vulnerabilidad BLOCKER, 4 hotspots y 198 code smells.
 
 ### Diapositiva 8 · Casos representativos (5:00–5:50)
 
 **Mensaje clave:** conectar cada caso con su evidencia.
 
-> Estos son los casos que mejor resumen el resultado. CP-001 aprobó: el login válido emite el JWT. CP-010 falló: el sistema aceptó un archivo .exe y lo sirvió como PDF, lo que es un riesgo de malware. CP-011 falló: un GET a contratos sin token devolvió los datos completos, un IDOR clásico. CP-012 sí aprobó: el intento de inyección SQL fue rechazado con 401 porque las consultas están parametrizadas. SEG-12 mostró CORS abierto con Allow-Origin asterisco, y FN-02 midió 4,06 segundos frente a un umbral de 300 milisegundos.
+> Estos son los casos que mejor resumen el resultado. CP-001 aprobó: el login válido emite el JWT. CP-010 falló: el sistema aceptó un archivo .exe y lo sirvió como PDF, lo que es un riesgo de malware. CP-011 falló: un GET a contratos sin token devolvió los datos completos, un IDOR clásico. CP-012 sí aprobó: el intento de inyección SQL fue rechazado con 401 porque las consultas están parametrizadas. SEG-12 mostró CORS abierto con Allow-Origin asterisco, y CP-013 midió 4,011 segundos en promedio de cinco mediciones, frente a un umbral de 300 milisegundos.
 
 ### Diapositiva 9 · Análisis estático (5:50–6:40)
 
@@ -105,7 +105,7 @@ La defensa tiene 10 minutos de exposición y 5 minutos de preguntas. La defensa 
 
 **Mensaje clave:** escala aplicada y regla de certificación.
 
-> Clasificamos los 11 incidentes con una escala de cuatro niveles. CRITICO: 4 casos, que impiden operar o exponen datos sensibles —el acceso sin token, las credenciales en texto claro, la subida sin validación y el secreto en el código—. GRAVE: 5 casos, entre ellos el JWT_SECRET inseguro, el CORS abierto, la ausencia de rate-limit, los errores 500 y el uso de localStorage. MODERADO: la latencia artificial. Y LEVE: los code smells de ESLint. La regla que aplicamos es que un software con defectos CRITICO abiertos nunca debe certificarse.
+> Clasificamos los 12 incidentes con una escala de cuatro niveles. CRITICO: 4 casos, que impiden operar o exponen datos sensibles —el acceso sin token, las credenciales en texto claro, la subida sin validación y el secreto en el código—. GRAVE: 6 casos, entre ellos el JWT_SECRET inseguro, el CORS abierto, la ausencia de rate-limit, los errores 500, el uso de localStorage y la latencia artificial de cuatro segundos, que incumple NFR-PERF-1. MODERADO: el contraste insuficiente y el idioma incorrecto del login. Y LEVE: los code smells de ESLint. La regla que aplicamos es que un software con defectos CRITICO abiertos nunca debe certificarse.
 
 ### Diapositiva 11 · Evidencias (7:30–8:00)
 
@@ -125,7 +125,7 @@ La defensa tiene 10 minutos de exposición y 5 minutos de preguntas. La defensa 
 
 **Mensaje clave:** criterio, resultado y acciones.
 
-> El criterio de certificación era tener el 100 % de los casos de seguridad críticos exitosos y ningún defecto crítico abierto. No se cumplió: fallaron CP-010 y CP-011 y quedan 4 incidentes CRITICO. Por eso el dictamen es NO CERTIFICADO. Las acciones correctivas prioritarias son: autenticación global en todos los endpoints, hash seguro de contraseñas, validación de archivos, secretos fuera del código, CORS restringido, rate-limit, transacciones y errores genéricos, cookies httpOnly y un Quality Gate de seguridad en CI.
+> El criterio de certificación era tener el 100 % de los casos de seguridad críticos exitosos y ningún defecto crítico abierto. No se cumplió: fallaron CP-010 y CP-011, ambos de seguridad, y CP-013 en rendimiento, y quedan 4 incidentes CRITICO. Por eso el dictamen es NO CERTIFICADO. Las acciones correctivas prioritarias son: autenticación global en todos los endpoints, hash seguro de contraseñas, validación de archivos limitada a PDF, DOC, PPT, JPG y PNG, secretos fuera del código, CORS restringido, rate-limit, transacciones y errores genéricos, cookies httpOnly y un Quality Gate de seguridad en CI. También eliminar la latencia artificial y corregir contraste e idioma antes de volver a medir.
 
 ### Diapositiva 14 · Cierre (9:40–10:00)
 
@@ -137,13 +137,13 @@ La defensa tiene 10 minutos de exposición y 5 minutos de preguntas. La defensa 
 
 ### 3.1. Sobre metodología y enfoque
 
-**P: ¿Por qué el dictamen es NO CERTIFICADO si el 83 % de los casos pasó?**
+**P: ¿Por qué el dictamen es NO CERTIFICADO si el 78,6 % de los casos pasó?**
 
-R: Porque el criterio de certificación no es el promedio, sino dos condiciones obligatorias: el 100 % de los casos de seguridad críticos exitosos y ningún defecto de severidad crítica abierto. Fallaron CP-010 y CP-011, ambos de seguridad, y quedan 4 incidentes CRITICO. Un software con defectos críticos abiertos nunca debe certificarse.
+R: Porque el criterio de certificación no es el promedio, sino dos condiciones obligatorias: el 100 % de los casos de seguridad críticos exitosos y ningún defecto de severidad crítica abierto. Fallaron CP-010 y CP-011, ambos de seguridad, y CP-013 de rendimiento, y quedan 4 incidentes CRITICO. Un software con defectos críticos abiertos nunca debe certificarse.
 
-**P: ¿Cómo se calculó la cobertura del 100 % del ERS?**
+**P: ¿Qué cobertura del ERS alcanzaron?**
 
-R: Con una matriz de trazabilidad bidireccional: los 12 requisitos evaluados (RQ-01 a RQ-12) se vincularon a 12 casos de prueba (CP-001 a CP-012), cada uno con resultado y defecto asociado. La matriz está en la sección 4.2 del informe.
+R: No declaramos cobertura total. Como el ERS completo no estaba en el repositorio, la matriz de la sección 4.2 se limita a 21 requisitos identificables desde el EP1, el código y las guías, con sus identificadores reales: RF-1.1, RF-4, RF-5.2, RF-6.1, NFR-PERF-1, NFR-SEG-4, RB-2 y otros. De esos 21, 6 están cubiertos plenamente (28,6 %), 9 parcialmente (42,9 %) y 6 no se verificaron (28,6 %). Además, cobertura no es conformidad: CP-010, CP-011 y CP-013 cubren requisitos y aun así fallaron.
 
 **P: ¿Cuál es la diferencia entre prueba funcional, de seguridad y no funcional en su plan?**
 
@@ -151,7 +151,7 @@ R: La funcional verifica qué hace el sistema (login, CRUD, contratos). La de se
 
 **P: ¿Por qué usaron dos ciclos y no uno solo?**
 
-R: El Ciclo 1 es un smoke test: si las funciones base fallan, no tiene sentido ejecutar el resto. El Ciclo 2 profundiza con los 12 casos y las pruebas complementarias. Es una práctica estándar de ISTQB para optimizar tiempo y aislar fallos.
+R: El Ciclo 1 es un smoke test: si las funciones base fallan, no tiene sentido ejecutar el resto. El Ciclo 2 profundiza con los 14 casos y las pruebas complementarias. Es una práctica estándar de ISTQB para optimizar tiempo y aislar fallos.
 
 **P: ¿La defensa es individual; cómo se distribuyó el trabajo?**
 
@@ -196,6 +196,10 @@ R: Ambos. Falta un middleware global de autenticación —los endpoints no valid
 **P: ¿Cómo probaron la inyección SQL y por qué no funcionó?**
 
 R: Enviamos el payload `admin' OR '1'='1` en el login. El servidor respondió 401 porque todas las consultas usan parámetros `$1..$n` de node-postgres, que separan datos de instrucciones. Es el caso CP-012, aprobado.
+
+**P: ¿El ERS exige que solo se acepten PDF?**
+
+R: No. RF-5.2 admite PDF, DOC, PPT, JPG y PNG. El defecto no es rechazar otros formatos, sino aceptar ejecutables y HTML sin validar extensión, tipo MIME ni contenido real. La propia interfaz se contradice: una pantalla dice "PDF, DOC, DOCX, XLS o XLSX" y otra dice "solo PDF", mientras el backend no aplica ningún filtro. Por eso el criterio de CP-010 se fijó sobre los cinco formatos del ERS.
 
 **P: ¿Por qué aceptar un archivo .exe es crítico?**
 
@@ -243,7 +247,7 @@ R: Primero la autenticación global (BUG-001) y el hash de contraseñas (BUG-002
 
 **P: ¿El sistema es funcional o no sirve?**
 
-R: Es funcional en su base: 10 de 12 casos aprobados. El problema no es que no funcione, sino que no es seguro para producción. Un sistema puede ser funcional y aun así no ser certificable.
+R: Es funcional en su base: 11 de 14 casos aprobados. El problema no es que no funcione, sino que no es seguro para producción. Un sistema puede ser funcional y aun así no ser certificable.
 
 **P: ¿Qué evidencia respalda el dictamen?**
 

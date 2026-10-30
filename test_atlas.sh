@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ============================================================================
 # Script de pruebas EP3/EP4 - Sistema Atlas (Caso Semestral)
-# Ejecuta la bateria de pruebas funcionales (FN) y de seguridad (SEG).
+# Ejecuta 14 casos de prueba (CP-001 a CP-014) y 10 pruebas de seguridad (SEG).
 # SEG: 10 pruebas (7 inseguras / 3 conformes), alineadas con el Anexo B
 # del informe y con la presentacion (SEG-07b y SEG-12).
 #
@@ -33,10 +33,10 @@ function encabezado() {
 }
 
 # ============================================================================
-# FUNCIONALES (FN)
+# CASOS DE PRUEBA FUNCIONALES Y NO FUNCIONALES (CP)
 # ============================================================================
 
-encabezado "FN-01 Login valido admin/admin"
+encabezado "CP-001 Login valido admin/admin"
 curl -s -o /dev/null -w "  HTTP %{http_code}  tiempo=%{time_total}s\n" \
   -X POST "$API/autenticacion/login" -H "Content-Type: application/json" \
   -d '{"nombre_usuario":"admin","password":"admin"}'
@@ -46,37 +46,70 @@ TOKEN=$(curl -s -X POST "$API/autenticacion/login" -H "Content-Type: application
   | python -c "import sys,json; print(json.load(sys.stdin)['token'])" 2>/dev/null)
 echo "  Token JWT obtenido (len=${#TOKEN})"
 
-encabezado "FN-02 Login contrasena incorrecta"
+encabezado "CP-002 Login contrasena incorrecta"
 curl -s -o /dev/null -w "  HTTP %{http_code}  tiempo=%{time_total}s\n" \
   -X POST "$API/autenticacion/login" -H "Content-Type: application/json" \
   -d '{"nombre_usuario":"admin","password":"incorrecta"}'
 
-encabezado "FN-03 Estado salud de la API"
+encabezado "CP-003 Estado salud de la API"
 curl -s -w "\n  --> HTTP %{http_code}\n" "$API/"
 
-encabezado "FN-04 Documentacion Swagger /docs/"
+encabezado "CP-004 Documentacion Swagger /docs/"
 curl -s -o /dev/null -w "  HTTP %{http_code}\n" -L "$API/docs/"
 
-encabezado "FN-05 Listar clientes (token)"
+encabezado "CP-005 Listar clientes (token)"
 curl -s -o /dev/null -w "  HTTP %{http_code}  tiempo=%{time_total}s\n" \
   "$API/clientes" -H "Authorization: Bearer $TOKEN"
 
-encabezado "FN-06 Buscar cliente por nombre (token)"
+encabezado "CP-006 Buscar cliente por nombre (token)"
 curl -s -o /dev/null -w "  HTTP %{http_code}\n" \
   "$API/clientes/search?name=Mar" -H "Authorization: Bearer $TOKEN"
 
-encabezado "FN-07 Crear cliente (token)"
+encabezado "CP-007 Crear cliente (token)"
 curl -s -o /dev/null -w "  HTTP %{http_code}\n" \
   -X POST "$API/clientes" -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
   -d '{"nombre":"Cliente Prueba Script","correo":"script@test.cl","telefono":"111","direccion":"Calle 1","es_empresa":false}'
 
-encabezado "FN-08 Listar contratos (token)"
+encabezado "CP-008 Listar contratos (token)"
 curl -s -o /dev/null -w "  HTTP %{http_code}  tiempo=%{time_total}s\n" \
   "$API/contratos" -H "Authorization: Bearer $TOKEN"
 
-encabezado "FN-09 Dashboard metricas (token)"
+encabezado "CP-009 Dashboard metricas (token)"
 curl -s -o /dev/null -w "  HTTP %{http_code}\n" \
   "$API/contratos/dashboard" -H "Authorization: Bearer $TOKEN"
+
+encabezado "CP-010 Upload .exe y .html a contrato (esperado rechazo 400/415)"
+printf 'MZ fake exe content' > /tmp/atlas_payload.exe
+printf '<html>payload</html>' > /tmp/atlas_payload.html
+for f in /tmp/atlas_payload.exe /tmp/atlas_payload.html; do
+  curl -s -o /dev/null -w "  $(basename "$f"): HTTP %{http_code}\n" \
+    -X POST "$API/contratos" -H "Authorization: Bearer $TOKEN" \
+    -F "cliente_id=1" -F "titulo=Contrato prueba upload" \
+    -F "fecha_inicio=2026-01-01" -F "fecha_fin=2026-12-31" \
+    -F "file=@$f"
+done
+echo "  Nota: un 201 confirma BUG-003 (solo se admiten PDF, DOC, PPT, JPG y PNG)."
+
+encabezado "CP-011 Acceso a contrato SIN token (esperado 401)"
+curl -s -o /dev/null -w "  GET /contratos/1: HTTP %{http_code}\n" "$API/contratos/1"
+echo "  Nota: un 200 confirma BUG-001 (control de acceso ausente)."
+
+encabezado "CP-012 SQLi en login (esperado 401)"
+curl -s -o /dev/null -w "  HTTP %{http_code}\n" \
+  -X POST "$API/autenticacion/login" -H "Content-Type: application/json" \
+  -d "{\"nombre_usuario\":\"admin' OR '1'='1\",\"password\":\"x\"}"
+
+encabezado "CP-013 Rendimiento GET /clientes: 5 mediciones (umbral 0,300 s)"
+for i in 1 2 3 4 5; do
+  curl -s -o /dev/null -w "  medicion $i: HTTP %{http_code}  %{time_total}s\n" \
+    "$API/clientes" -H "Authorization: Bearer $TOKEN"
+done
+
+encabezado "CP-014 Usabilidad y accesibilidad del login (revision asistida)"
+curl -s -o /dev/null -w "  frontend /login: HTTP %{http_code}\n" \
+  "${FRONTEND:-http://localhost:3350}/login"
+echo "  Checklist manual: fuente >=12 px, contraste AA, labels asociados, lang=es, foco visible, mensajes de error."
+echo "  Evidencia automatica: Lighthouse (Accessibility) >= 0,90; en la revision se obtuvo 0,96."
 
 # ============================================================================
 # SEGURIDAD (SEG) - 10 pruebas: 7 inseguras / 3 conformes
