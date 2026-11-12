@@ -7,6 +7,7 @@ Ejecución en PyCharm:
   - O desde terminal: python -m pytest -v test_atlas_pom.py
 """
 import os
+import time
 import logging
 import pytest
 from selenium import webdriver
@@ -86,7 +87,9 @@ class ClientesPage:
         self.driver.find_element(*self.INPUT_NOMBRE).send_keys(nombre)
         self.driver.find_element(*self.INPUT_CORREO).send_keys(correo)
         self.driver.find_element(*self.INPUT_TELEFONO).send_keys(telefono)
-        self.driver.find_element(*self.BTN_GUARDAR).click()
+        boton = self.driver.find_element(*self.BTN_GUARDAR)
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", boton)
+        boton.click()
 
     def verificar_listado_visible(self) -> str:
         return self.wait.until(EC.visibility_of_element_located(self.ENCABEZADO_TABLA)).text
@@ -131,12 +134,13 @@ def test_aut_01_login_exitoso(driver):
 def test_aut_02_crear_cliente(driver):
     """AUT-02: Verifica la creación de un nuevo cliente y retorno al listado."""
     clientes_page = ClientesPage(driver)
+    sufijo = int(time.time())
 
     clientes_page.ir_a_clientes()
     clientes_page.crear_cliente(
-        rut="76.543.210-K",
-        nombre="Empresa Automatizada POM",
-        correo="qa.pom@atlas.cl",
+        rut=f"76.{sufijo % 900000 + 100000}-K",
+        nombre=f"Empresa Automatizada POM {sufijo}",
+        correo=f"qa.pom.{sufijo}@atlas.cl",
         telefono="+56988887777",
     )
     assert "Clientes registrados" in clientes_page.verificar_listado_visible()
