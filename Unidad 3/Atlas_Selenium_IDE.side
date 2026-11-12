@@ -1,0 +1,229 @@
+{
+  "id": "b8c4e1a0-9d21-4f88-a312-901234567890",
+  "version": "2.0",
+  "name": "Atlas_Unidad3_Automatizacion",
+  "url": "http://localhost:3350",
+  "tests": [
+    {
+      "id": "11111111-2222-3333-4444-555555555501",
+      "name": "AUT-01_Login_Exitoso",
+      "commands": [
+        {
+          "id": "cmd-01",
+          "comment": "Abrir pantalla de inicio de sesion de Atlas",
+          "command": "open",
+          "target": "/login",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cmd-02",
+          "comment": "Ajustar ventana de navegador",
+          "command": "setWindowSize",
+          "target": "1280x800",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cmd-03",
+          "comment": "Verificar encabezado de la pagina de login",
+          "command": "verifyText",
+          "target": "css=h4",
+          "targets": [],
+          "value": "Iniciar Sesión"
+        },
+        {
+          "id": "cmd-04",
+          "comment": "Ingresar nombre de usuario administrador",
+          "command": "type",
+          "target": "id=nombre_usuario",
+          "targets": [
+            ["id=nombre_usuario", "id"],
+            ["css=[data-testid=\"input-nombre-usuario\"]", "css:data-attr"]
+          ],
+          "value": "admin"
+        },
+        {
+          "id": "cmd-05",
+          "comment": "Ingresar contrasena",
+          "command": "type",
+          "target": "id=password",
+          "targets": [
+            ["id=password", "id"],
+            ["css=[data-testid=\"input-password\"]", "css:data-attr"]
+          ],
+          "value": "admin"
+        },
+        {
+          "id": "cmd-06",
+          "comment": "Hacer clic en el boton Entrar",
+          "command": "click",
+          "target": "css=[data-testid=\"button-login\"]",
+          "targets": [
+            ["css=[data-testid=\"button-login\"]", "css:data-attr"],
+            ["css=button[type=\"submit\"]", "css:finder"]
+          ],
+          "value": ""
+        },
+        {
+          "id": "cmd-07",
+          "comment": "Esperar carga del Dashboard (latencia del backend)",
+          "command": "waitForElementVisible",
+          "target": "css=[data-testid=\"link-nav-clientes\"]",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "cmd-08",
+          "comment": "Asercion obligatoria: verificar que el menu principal de Clientes sea visible",
+          "command": "assertText",
+          "target": "css=[data-testid=\"link-nav-clientes\"]",
+          "targets": [],
+          "value": "Clientes"
+        }
+      ]
+    },
+    {
+      "id": "11111111-2222-3333-4444-555555555502",
+      "name": "AUT-02_Crear_Cliente",
+      "commands": [
+        {
+          "id": "cmd-201",
+          "comment": "Navegar al modulo de Clientes",
+          "command": "open",
+          "target": "/clientes",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cmd-202",
+          "comment": "Verificar titulo de Gestion de Clientes",
+          "command": "verifyText",
+          "target": "css=h5",
+          "targets": [],
+          "value": "Gestión de Clientes"
+        },
+        {
+          "id": "cmd-203",
+          "comment": "Seleccionar pestana Crear Cliente",
+          "command": "click",
+          "target": "xpath=//button[contains(.,'Crear Cliente')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cmd-204",
+          "comment": "Ingresar RUT del nuevo cliente",
+          "command": "type",
+          "target": "id=rut-cliente-create",
+          "targets": [],
+          "value": "76.543.210-K"
+        },
+        {
+          "id": "cmd-205",
+          "comment": "Ingresar Nombre del cliente",
+          "command": "type",
+          "target": "id=nombre-cliente-create",
+          "targets": [],
+          "value": "Empresa Automatizada Selenium"
+        },
+        {
+          "id": "cmd-206",
+          "comment": "Ingresar Correo del cliente",
+          "command": "type",
+          "target": "id=correo-cliente-create",
+          "targets": [],
+          "value": "qa.selenium@atlas.cl"
+        },
+        {
+          "id": "cmd-207",
+          "comment": "Ingresar Telefono del cliente",
+          "command": "type",
+          "target": "id=telefono-cliente-create",
+          "targets": [],
+          "value": "+56988887777"
+        },
+        {
+          "id": "cmd-208",
+          "comment": "Enviar formulario de creacion",
+          "command": "click",
+          "target": "id=crear-cliente-create",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cmd-209",
+          "comment": "Asercion obligatoria: verificar retorno al listado de Clientes registrados",
+          "command": "verifyText",
+          "target": "xpath=//h6[contains(.,'Clientes registrados')]",
+          "targets": [],
+          "value": "Clientes registrados"
+        }
+      ]
+    },
+    {
+      "id": "11111111-2222-3333-4444-555555555503",
+      "name": "AUT-03_Verificar_Listado_y_Logout",
+      "commands": [
+        {
+          "id": "cmd-301",
+          "comment": "Abrir listado de clientes",
+          "command": "open",
+          "target": "/clientes",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cmd-302",
+          "comment": "Esperar que cargue la tabla de clientes",
+          "command": "waitForElementPresent",
+          "target": "xpath=//h6[contains(.,'Clientes registrados')]",
+          "targets": [],
+          "value": "10000"
+        },
+        {
+          "id": "cmd-303",
+          "comment": "Asercion: verificar que la seccion Clientes registrados este visible",
+          "command": "verifyText",
+          "target": "xpath=//h6[contains(.,'Clientes registrados')]",
+          "targets": [],
+          "value": "Clientes registrados"
+        },
+        {
+          "id": "cmd-304",
+          "comment": "Cerrar sesion de forma segura",
+          "command": "click",
+          "target": "css=[data-testid=\"button-layout-logout\"]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cmd-305",
+          "comment": "Asercion final: verificar redireccion a Login",
+          "command": "assertText",
+          "target": "css=h4",
+          "targets": [],
+          "value": "Iniciar Sesión"
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite-atlas-u3",
+      "name": "Suite_Regresion_Atlas_Unidad3",
+      "persistSession": true,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "11111111-2222-3333-4444-555555555501",
+        "11111111-2222-3333-4444-555555555502",
+        "11111111-2222-3333-4444-555555555503"
+      ]
+    }
+  ],
+  "urls": [
+    "http://localhost:3350"
+  ],
+  "plugins": []
+}

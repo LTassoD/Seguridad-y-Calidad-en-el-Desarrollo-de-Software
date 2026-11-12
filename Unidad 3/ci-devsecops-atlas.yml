@@ -1,0 +1,117 @@
+# ==============================================================================
+# Subunidad 3.2 — Pipeline CI/CD con Controles de Seguridad (Shift-Left / DevSecOps)
+# Sistema: Atlas (Frontend React + Backend Express/Node.js + PostgreSQL)
+# Filosofía: Fail Fast · Pirámide de Testing · 4 Pilares DevSecOps:
+#   1. Validación de Secrets (Gitleaks)
+#   2. Gestión de Dependencias / SCA (npm audit)
+#   3. SAST - Análisis Estático (ESLint 9 + SonarQube)
+#   4. Testing Automatizado (Unitarias / Integración / E2E Selenium POM)
+#   5. DAST - Análisis Dinámico con OWASP ZAP (Spider + Active Scan + HTML Report)
+# ==============================================================================
+
+name: CI-CD DevSecOps Atlas
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # ETAPA 1: CONTROL DE VERSIONES Y VALIDACIÓN DE SECRETS (FAIL FAST)
+  secrets_and_sast:
+    name: "1. Shift-Left: Secrets + SAST + SCA"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "1.1 Checkout del código fuente (Source)"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "1.2 Validación de Secrets en repositorio (Gitleaks)"
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "1.3 Configurar entorno Node.js 20 con caché"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: "1.4 Gestión de Dependencias (SCA - npm audit Backend y Frontend)"
+        run: |
+          cd BACKEND && npm ci && npm audit --audit-level=high
+          cd ../FRONTEND && npm ci && npm audit --audit-level=high
+
+      - name: "1.5 SAST: Análisis Estático de Calidad y Seguridad (ESLint 9)"
+        run: |
+          cd BACKEND && npx eslint .
+          cd ../FRONTEND && npx eslint .
+
+      - name: "1.6 SAST: Escaneo SonarQube y Quality Gate"
+        uses: SonarSource/sonarqube-scan-action@v3
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+  # ETAPA 2 Y 3: CONSTRUCCIÓN (BUILD) Y TESTING AUTOMATIZADO (PIRÁMIDE DE TESTING)
+  build_and_test:
+    name: "2. Build + Pruebas Unitarias, Integración y E2E"
+    needs: secrets_and_sast
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "2.1 Construcción de contenedores Docker (Build)"
+        run: docker compose up -d --build
+
+      - name: "2.2 Esperar disponibilidad de la API (:4450) y Frontend (:3350)"
+        run: |
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:4450/ && break
+            sleep 2
+          done
+
+      - name: "2.3 Ejecutar batería de pruebas de integración y seguridad (CP-001..CP-014)"
+        run: bash test_atlas.sh
+
+      - name: "2.4 Ejecutar suite E2E automatizada (Selenium WebDriver + POM)"
+        run: |
+          pip install selenium
+          python test_atlas_pom.py
+
+  # ETAPA 4: ANÁLISIS DINÁMICO DE SEGURIDAD (DAST CON OWASP ZAP)
+  dast_owasp_zap:
+    name: "3. DAST: OWASP ZAP (Spider + Active Scan)"
+    needs: build_and_test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "3.1 Levantar entorno controlado para escaneo DAST"
+        run: docker compose up -d --build
+
+      - name: "3.2 Ejecutar OWASP ZAP Full Scan (Spider + Active Scan)"
+        uses: zaproxy/action-full-scan@v0.10.0
+        with:
+          target: "http://localhost:3350"
+          cmd_options: "-a -j"
+
+      - name: "3.3 Publicar Reporte HTML/JSON de OWASP ZAP como evidencia"
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: owasp-zap-report-atlas
+          path: |
+            report_html.html
+            report_json.json
+
+  # ETAPA 5: DESPLIEGUE CONTINUO (DEPLOY) CONDICIONADO A QUALITY & SECURITY GATES
+  deploy_staging:
+    name: "4. Despliegue Continuo a Staging (Deploy)"
+    needs: dast_owasp_zap
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: "4.1 Despliegue autorizado tras superar controles SAST, DAST y E2E"
+        run: echo "Artefacto validado y desplegado en entorno Staging."
