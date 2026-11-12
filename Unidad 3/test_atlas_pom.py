@@ -29,7 +29,7 @@ class LoginPage:
     INPUT_USUARIO = (By.ID, "nombre_usuario")
     INPUT_PASSWORD = (By.ID, "password")
     BTN_LOGIN = (By.CSS_SELECTOR, '[data-testid="button-login"]')
-    TITULO_LOGIN = (By.CSS_SELECTOR, "h4")
+    TITULO_LOGIN = (By.CSS_SELECTOR, "h2")
 
     def __init__(self, driver: webdriver.Remote, timeout: int = 12):
         self.driver = driver

@@ -28,7 +28,7 @@
           "id": "cmd-03",
           "comment": "Verificar encabezado de la pagina de login",
           "command": "verifyText",
-          "target": "css=h4",
+          "target": "css=h2",
           "targets": [],
           "value": "Iniciar Sesión"
         },
@@ -201,7 +201,7 @@
           "id": "cmd-305",
           "comment": "Asercion final: verificar redireccion a Login",
           "command": "assertText",
-          "target": "css=h4",
+          "target": "css=h2",
           "targets": [],
           "value": "Iniciar Sesión"
         }
