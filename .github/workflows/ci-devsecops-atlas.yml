@@ -1,0 +1,40 @@
+name: CI-CD DevSecOps Atlas (Shift-Left & Fail Fast)
+
+on:
+  push:
+    branches: [ main, unidad-3-automatizacion-pentesting ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  secrets_gitleaks:
+    name: "1. Shift-Left: Secrets (Gitleaks)"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "1.1 Checkout del código fuente"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "1.2 Escaneo de secretos en repositorio (Gitleaks v2)"
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build_sca:
+    name: "2. Build & SCA (npm ci + npm audit)"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "2.1 Checkout del código fuente"
+        uses: actions/checkout@v4
+
+      - name: "2.2 Configurar Node.js 20"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: "2.3 Build y SCA Backend (npm ci + npm audit)"
+        run: |
+          cd BACKEND
+          npm ci
