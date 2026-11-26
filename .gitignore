@@ -1,0 +1,6 @@
+BACKEND/node_modules
+FRONTEND/node_modules
+node_modules/
+.scannerwork/
+.pytest_cache/
+__pycache__/
