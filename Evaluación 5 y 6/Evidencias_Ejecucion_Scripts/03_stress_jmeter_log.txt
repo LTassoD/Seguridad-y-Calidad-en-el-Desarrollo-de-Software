@@ -1,0 +1,14 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.7, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\User\AppData\Local\Programs\Python\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: c:\Users\User\Desktop\Duoc\Duoc 6 semestre\Seguridad y calidad en el desarrollo de software\Evaluaciones\Evaluaci�n Unidad 3
+collecting ... collected 3 items
+
+test_atlas_stress.py::test_escenario_a_carga_constante_10_usuarios PASSED
+test_atlas_stress.py::test_escenario_b_prueba_estres_y_cuello_botella PASSED
+test_atlas_stress.py::test_escenario_c_prueba_pico_spike_200_usuarios 
+[OK] Reporte HTML de Estr�s generado en: c:\Users\User\Desktop\Duoc\Duoc 6 semestre\Seguridad y calidad en el desarrollo de software\Evaluaciones\Evaluaci�n Unidad 3\reporte_estres_atlas.html
+[OK] Datos CSV generados en: c:\Users\User\Desktop\Duoc\Duoc 6 semestre\Seguridad y calidad en el desarrollo de software\Evaluaciones\Evaluaci�n Unidad 3\jmeter_resultados_atlas.csv
+PASSED
+
+============================= 3 passed in 12.81s ==============================

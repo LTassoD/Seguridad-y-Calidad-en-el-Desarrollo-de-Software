@@ -1,0 +1,25 @@
+==============================================================================
+  AUDITOR TRANSVERSAL ATLAS � UNIDADES 1, 2 Y 3
+==============================================================================
+Carpeta original : C:\Users\User\Desktop\Duoc\Duoc 6 semestre\Seguridad y calidad en el desarrollo de software\C�digo\CodigoFuenteA\CodigoFuenteA
+Carpeta auditada : C:\Users\User\Desktop\Duoc\Duoc 6 semestre\Seguridad y calidad en el desarrollo de software\C�digo\CodigoFuenteA\CodigoFuenteA
+
+Total de hallazgos detectados en c�digo: 73
+  [GRAVE   ] SAST-CORS-OPEN         | BACKEND/src/app.js:22                | CORS completamente abierto (`Access-Control-Allow-Origi
+  [CR�TICO ] SAST-HARDCODED-SECRET  | BACKEND/src/routes/audit.js:6        | Secreto o credencial de base de datos hardcodeada en el
+  [MODERADO] SAST-ERROR-LEAK        | BACKEND/src/routes/audit.js:32       | Respuesta HTTP 500 expone `err.message` interno de Post
+  [MODERADO] SAST-ERROR-LEAK        | BACKEND/src/routes/audit.js:43       | Respuesta HTTP 500 expone `err.message` interno de Post
+  [CR�TICO ] SAST-MISSING-AUTH      | BACKEND/src/routes/audit.js:37       | Endpoint `GET /` definido sin validaci�n de token JWT n
+  [CR�TICO ] SAST-HARDCODED-SECRET  | BACKEND/src/routes/auth.js:7         | Secreto o credencial de base de datos hardcodeada en el
+  [GRAVE   ] SAST-DELAY-PERF        | BACKEND/src/routes/auth.js:17        | Latencia artificial (`delay` / `setTimeout` >= 1 s) que
+  [CR�TICO ] SAST-PLAIN-PWD         | BACKEND/src/routes/auth.js:26        | Comparaci�n de contrase�a en texto claro sin algoritmo 
+  [MODERADO] SAST-ERROR-LEAK        | BACKEND/src/routes/auth.js:64        | Respuesta HTTP 500 expone `err.message` interno de Post
+  [CR�TICO ] SAST-HARDCODED-SECRET  | BACKEND/src/routes/clients.js:6      | Secreto o credencial de base de datos hardcodeada en el
+  [MODERADO] SAST-ERROR-LEAK        | BACKEND/src/routes/clients.js:122    | Respuesta HTTP 500 expone `err.message` interno de Post
+  [GRAVE   ] SAST-DELAY-PERF        | BACKEND/src/routes/clients.js:131    | Latencia artificial (`delay` / `setTimeout` >= 1 s) que
+  [MODERADO] SAST-ERROR-LEAK        | BACKEND/src/routes/clients.js:155    | Respuesta HTTP 500 expone `err.message` interno de Post
+  [MODERADO] SAST-ERROR-LEAK        | BACKEND/src/routes/clients.js:183    | Respuesta HTTP 500 expone `err.message` interno de Post
+  [MODERADO] SAST-ERROR-LEAK        | BACKEND/src/routes/clients.js:214    | Respuesta HTTP 500 expone `err.message` interno de Post
+  ... y 58 hallazgos adicionales en el reporte HTML.
+
+[OK] Reporte HTML generado en: c:\Users\User\Desktop\Duoc\Duoc 6 semestre\Seguridad y calidad en el desarrollo de software\Evaluaciones\Evaluaci�n Unidad 3\reporte_auditoria_transversal_atlas.html

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reporte de Pruebas de Carga, Estrés y Pico (Subunidad 3.4) — Sistema Atlas</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 32px; color: #1f2937; background: #f8fafc; }
+  h1 { color: #0f4c5c; margin-bottom: 4px; }
+  h2 { color: #0f4c5c; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px; margin-top: 26px; }
+  .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px; margin-top: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+  th, td { border: 1px solid #cbd5e1; padding: 8px 9px; text-align: left; }
+  th { background: #e8f1f2; color: #0f4c5c; }
+  .hallazgo { background: #fff7ed; border-left: 5px solid #ea580c; padding: 14px; margin-top: 16px; }
+</style>
+</head>
+<body>
+  <h1>Reporte Técnico — Subunidad 3.4: Pruebas de Carga, Estrés y Pico (JMeter / Concurrencia)</h1>
+  <p><b>Sistema evaluado:</b> Atlas API (<code>http://localhost:4450</code>) · <b>Fecha:</b> 26-11-2026 11:25:48</p>
+
+  <div class="card">
+    <h2>1. Informe Agregado de Escenarios (Throughput, Latency y Error %)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Escenario</th><th>Hilos</th><th>Muestras</th><th>Latencia Prom.</th>
+          <th>Mín / Máx</th><th>P95</th><th>Throughput</th><th>Error %</th><th>Monitoreo Docker (CPU / RAM)</th>
+        </tr>
+      </thead>
+      <tbody><tr><td><b>A. Carga Constante (10 usuarios)</b><br><small><code>/contratos/1</code></small></td><td>10</td><td>50</td><td><b>47.0 ms</b></td><td>13.0 / 216.6 ms</td><td>191.5 ms</td><td><b>157.16 req/s</b></td><td>0.0 %</td><td><small>atlas-frontend: CPU 0.00% | RAM 8.383MiB / 11.59GiB ; atlas-backend: CPU 0.01% | RAM 25.34MiB / 11.59GiB ; atlas-postgres: CPU 0.06% | RAM 42.23MiB / 11.59GiB</small></td></tr>
+<tr><td><b>B1. Estrés Concurrencia Alta (150 hilos en /contratos/1)</b><br><small><code>/contratos/1</code></small></td><td>150</td><td>300</td><td><b>326.6 ms</b></td><td>7.8 / 527.0 ms</td><td>511.5 ms</td><td><b>359.3 req/s</b></td><td>0.0 %</td><td><small>atlas-frontend: CPU 0.00% | RAM 8.383MiB / 11.59GiB ; atlas-backend: CPU 0.02% | RAM 37.82MiB / 11.59GiB ; atlas-postgres: CPU 0.03% | RAM 47.05MiB / 11.59GiB</small></td></tr>
+<tr><td><b>B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes)</b><br><small><code>/clientes</code></small></td><td>25</td><td>25</td><td><b>4018.1 ms</b></td><td>4010.2 / 4022.0 ms</td><td>4021.5 ms</td><td><b>6.19 req/s</b></td><td>100.0 %</td><td><small>atlas-frontend: CPU 0.00% | RAM 8.383MiB / 11.59GiB ; atlas-backend: CPU 0.05% | RAM 38.54MiB / 11.59GiB ; atlas-postgres: CPU 0.02% | RAM 47.06MiB / 11.59GiB</small></td></tr>
+<tr><td><b>C. Prueba de Pico / Spike (200 usuarios simultáneos)</b><br><small><code>/contratos/1</code></small></td><td>200</td><td>200</td><td><b>167.5 ms</b></td><td>7.6 / 211.1 ms</td><td>209.5 ms</td><td><b>541.97 req/s</b></td><td>0.0 %</td><td><small>atlas-frontend: CPU 0.00% | RAM 8.383MiB / 11.59GiB ; atlas-backend: CPU 0.09% | RAM 43.09MiB / 11.59GiB ; atlas-postgres: CPU 3.45% | RAM 47.44MiB / 11.59GiB</small></td></tr></tbody>
+    </table>
+    <p style="margin-top:10px;"><b>Verificación de Resiliencia (RTO tras prueba de Pico de 200 usuarios):</b> Recuperación inmediata verificada (OK en <b>23.2 ms</b>).</p>
+  </div>
+
+  <div class="card">
+    <h2>2. Gráfico Comparativo: Usuarios Concurrentes vs. Tiempo de Respuesta (ms)</h2>
+    <div style='margin:10px 0;'><div style='font-size:13px;margin-bottom:3px;'><b>A. Carga Constante (10 usuarios)</b> — Promedio: <b>47.0 ms</b> · P95: <b>191.5 ms</b> · Throughput: <b>157.16 req/s</b></div><div style='background:#e2e8f0;border-radius:6px;height:22px;width:100%;overflow:hidden;'><div style='background:#0f4c5c;height:100%;width:4.0%;'></div></div></div>
+<div style='margin:10px 0;'><div style='font-size:13px;margin-bottom:3px;'><b>B1. Estrés Concurrencia Alta (150 hilos en /contratos/1)</b> — Promedio: <b>326.6 ms</b> · P95: <b>511.5 ms</b> · Throughput: <b>359.3 req/s</b></div><div style='background:#e2e8f0;border-radius:6px;height:22px;width:100%;overflow:hidden;'><div style='background:#0f4c5c;height:100%;width:7.3%;'></div></div></div>
+<div style='margin:10px 0;'><div style='font-size:13px;margin-bottom:3px;'><b>B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes)</b> — Promedio: <b>4018.1 ms</b> · P95: <b>4021.5 ms</b> · Throughput: <b>6.19 req/s</b></div><div style='background:#e2e8f0;border-radius:6px;height:22px;width:100%;overflow:hidden;'><div style='background:#dc2626;height:100%;width:89.3%;'></div></div></div>
+<div style='margin:10px 0;'><div style='font-size:13px;margin-bottom:3px;'><b>C. Prueba de Pico / Spike (200 usuarios simultáneos)</b> — Promedio: <b>167.5 ms</b> · P95: <b>209.5 ms</b> · Throughput: <b>541.97 req/s</b></div><div style='background:#e2e8f0;border-radius:6px;height:22px;width:100%;overflow:hidden;'><div style='background:#0f4c5c;height:100%;width:4.0%;'></div></div></div>
+    <div class="hallazgo">
+      <b>Hallazgo Técnico (Formato Guía 3.4.2):</b> Mientras los endpoints sin retención artificial (<code>GET /contratos/1</code>) soportan ráfagas de 150 a 200 usuarios concurrentes con alto Throughput y 0 % de error, los endpoints que contienen <code>delay(4000)</code> (<code>/clientes</code>, <code>/autenticacion/login</code>) superan desde el primer usuario el umbral crítico de <b>2.000 ms</b> fijado por la guía (~4.011 ms) y degradan drásticamente el Throughput (~5,8 req/s con 25 hilos), confirmando el cuello de botella <code>BUG-010</code>.
+    </div>
+  </div>
+</body>
+</html>

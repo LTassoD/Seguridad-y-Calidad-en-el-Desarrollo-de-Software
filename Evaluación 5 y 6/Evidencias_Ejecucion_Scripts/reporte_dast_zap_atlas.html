@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reporte de Pentesting (3.1) y Escaneo DAST / OWASP ZAP (3.2) — Sistema Atlas</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 32px; color: #1f2937; background: #f8fafc; }
+  h1 { color: #0f4c5c; margin-bottom: 4px; }
+  h2 { color: #0f4c5c; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px; margin-top: 28px; }
+  .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px; margin-top: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13.5px; }
+  th, td { border: 1px solid #cbd5e1; padding: 9px 10px; text-align: left; vertical-align: top; }
+  th { background: #e8f1f2; color: #0f4c5c; }
+  .badge { padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; display: inline-block; }
+  .crítica, .alta { background: #fee2e2; color: #991b1b; }
+  .media { background: #fef3c7; color: #92400e; }
+  .baja { background: #e0f2fe; color: #075985; }
+  .pass { background: #dcfce7; color: #166534; }
+  .dictamen { background: #fef2f2; border-left: 5px solid #dc2626; padding: 14px; font-weight: bold; color: #7f1d1d; margin-top: 18px; }
+</style>
+</head>
+<body>
+  <h1>Reporte Técnico de Ejecución — Subunidades 3.1 (Pentesting) y 3.2 (DAST / OWASP ZAP)</h1>
+  <p><b>Sistema evaluado:</b> Atlas (Frontend <code>http://localhost:3350</code> · API <code>http://localhost:4450</code>) · <b>Fecha:</b> 26-11-2026 11:25:34</p>
+
+  <div class="card">
+    <h2>1. Bitácora Técnica de Pruebas de Seguridad (Guía 3.1.2)</h2>
+    <table>
+      <thead>
+        <tr><th>ID Prueba</th><th>Tipo de ataque</th><th>Herramienta</th><th>Resultado Obtenido</th><th>Severidad</th></tr>
+      </thead>
+      <tbody><tr><td><b>SEG-01</b></td><td>Enumeración e IDOR sin token (/contratos/1, /usuarios/1, /auditoria)</td><td>Pytest Pentest / curl</td><td>HTTP 200/200/200: expone contratos, correo de usuario y logs sin autenticar (BUG-001)</td><td><span class='badge crítica'>Crítica</span></td></tr>
+<tr><td><b>SEG-02</b></td><td>Fuerza bruta sobre /autenticacion/login (diccionario)</td><td>Pytest Pentest / Diccionario</td><td>Respuestas [401, 401, 401] sin HTTP 429 (Too Many Requests); no bloquea IP (incumple ISO 25010)</td><td><span class='badge crítica'>Crítica</span></td></tr>
+<tr><td><b>SEG-03</b></td><td>SQL Injection (SQLi: admin' OR '1'='1)</td><td>Pytest Pentest / sqlmap</td><td>HTTP 401: consultas parametrizadas ($1) bloquean la inyección SQL</td><td><span class='badge pass'>Pass</span></td></tr>
+<tr><td><b>SEG-04</b></td><td>Subida de archivo ejecutable (.exe) en POST /contratos</td><td>Pytest Pentest / Multer</td><td>HTTP 201: servidor acepta y almacena .exe sin validar extensión ni MIME (BUG-003)</td><td><span class='badge crítica'>Crítica</span></td></tr>
+<tr><td><b>SEG-05</b></td><td>Cross-Site Scripting (XSS) mediante archivo HTML activo</td><td>Pytest Pentest / XSS</td><td>HTTP 201: acepta HTML con <script>alert('Vulnerable XSS');</script> sin sanitizar</td><td><span class='badge alta'>Alta</span></td></tr></tbody>
+    </table>
+    <div class="dictamen">
+      SISTEMA NO CERTIFICADO: Se identificaron vulnerabilidades críticas de control de acceso roto (IDOR) y carga irrestricta de archivos ejecutables (.exe / .html) que comprometen la integridad y confidencialidad de los datos del cliente.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>2. Resumen e Interpretación de Alertas DAST / OWASP ZAP (Guía 3.2.2)</h2>
+    <table>
+      <thead>
+        <tr><th>Alerta encontrada (URL afectada)</th><th>Severidad</th><th>Impacto en la calidad</th><th>Estado</th></tr>
+      </thead>
+      <tbody><tr><td><b>Cross-Domain Misconfiguration (Access-Control-Allow-Origin: *)</b><br><small>http://localhost:4450/</small></td><td><span class='badge alta'>Alta</span></td><td>Cualquier dominio externo puede leer respuestas de la API; vulnera confidencialidad (BUG-005).</td><td>Abierta</td></tr>
+<tr><td><b>Missing Anti-Clickjacking Header (X-Frame-Options)</b><br><small>http://localhost:3350/login</small></td><td><span class='badge media'>Media</span></td><td>Permite enmarcar la interfaz en un iframe malicioso para engañar al usuario (Clickjacking).</td><td>Abierta</td></tr>
+<tr><td><b>X-Content-Type-Options Header Missing (nosniff)</b><br><small>http://localhost:4450/contratos/1/file</small></td><td><span class='badge media'>Media</span></td><td>Riesgo de interpretación errónea de archivos subidos (MIME-sniffing de .exe/.html).</td><td>Abierta</td></tr>
+<tr><td><b>Content Security Policy (CSP) Header Not Set</b><br><small>http://localhost:3350/login</small></td><td><span class='badge media'>Media</span></td><td>Ausencia de defensa en profundidad frente a inyección de scripts XSS y robo de JWT en localStorage.</td><td>Abierta</td></tr>
+<tr><td><b>OpenAPI / Swagger UI Exposed Publicly (/docs/)</b><br><small>http://localhost:4450/docs/</small></td><td><span class='badge baja'>Baja</span></td><td>Expone la estructura completa de endpoints y esquemas sin requerir autenticación.</td><td>Abierta</td></tr></tbody>
+    </table>
+    <p style="margin-top:12px;"><b>Recomendación Técnica (Guía 3.2.2):</b> Se recomienda instalar y configurar <code>helmet</code> en Express, restringir <code>cors()</code> a los orígenes autorizados e implementar cookies <code>httpOnly</code> con protección Anti-CSRF, mitigando más del 70 % de las alertas de severidad alta y media detectadas.</p>
+  </div>
+</body>
+</html>

@@ -1421,7 +1421,23 @@ jobs:
     steps:
 ```
 
-#### G.4. Extracto de Automatización Funcional E2E con Patrón Page Object Model (`test_atlas_pom.py`)
+#### G.4. Evidencia de Ejecución y Extracto de Automatización Funcional E2E con Patrón Page Object Model (`test_atlas_pom.py`)
+
+![Evidencia Anexo G.4: Ejecución real de Pytest 9.2.0 + Selenium WebDriver POM (3 passed en 18,98 s)](Evidencias/AnexoG_03_Ejecucion_Pytest_Selenium_POM.png)
+
+**Salida de consola registrada (`python -m pytest -v -s test_atlas_pom.py`):**
+
+```text
+platform win32 -- Python 3.13.7, pytest-9.2.0, pluggy-1.7.0
+collected 3 items
+
+test_atlas_pom.py::test_aut_01_login_exitoso PASSED
+test_atlas_pom.py::test_aut_02_crear_cliente PASSED
+test_atlas_pom.py::test_aut_03_verificar_listado_y_logout PASSED
+
+======================== 3 passed in 18.98s ========================
+```
+
 
 ```python
 class LoginPage:

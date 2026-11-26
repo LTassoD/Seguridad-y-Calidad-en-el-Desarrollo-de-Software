@@ -1,0 +1,576 @@
+ts,escenario,endpoint,code,latency_ms,ok,bytes
+1795703136212,A. Carga Constante (10 usuarios),/contratos/1,200,177.5,True,239
+1795703136214,A. Carga Constante (10 usuarios),/contratos/1,200,191.45,True,239
+1795703136213,A. Carga Constante (10 usuarios),/contratos/1,200,194.38,True,239
+1795703136211,A. Carga Constante (10 usuarios),/contratos/1,200,196.78,True,239
+1795703136373,A. Carga Constante (10 usuarios),/contratos/1,200,48.22,True,239
+1795703136277,A. Carga Constante (10 usuarios),/contratos/1,200,145.54,True,239
+1795703136375,A. Carga Constante (10 usuarios),/contratos/1,200,52.61,True,239
+1795703136212,A. Carga Constante (10 usuarios),/contratos/1,200,216.57,True,239
+1795703136375,A. Carga Constante (10 usuarios),/contratos/1,200,54.66,True,239
+1795703136376,A. Carga Constante (10 usuarios),/contratos/1,200,61.01,True,239
+1795703136390,A. Carga Constante (10 usuarios),/contratos/1,200,48.05,True,239
+1795703136407,A. Carga Constante (10 usuarios),/contratos/1,200,32.11,True,239
+1795703136408,A. Carga Constante (10 usuarios),/contratos/1,200,34.25,True,239
+1795703136405,A. Carga Constante (10 usuarios),/contratos/1,200,37.62,True,239
+1795703136427,A. Carga Constante (10 usuarios),/contratos/1,200,20.51,True,239
+1795703136428,A. Carga Constante (10 usuarios),/contratos/1,200,20.16,True,239
+1795703136430,A. Carga Constante (10 usuarios),/contratos/1,200,20.07,True,239
+1795703136440,A. Carga Constante (10 usuarios),/contratos/1,200,13.94,True,239
+1795703136437,A. Carga Constante (10 usuarios),/contratos/1,200,17.26,True,239
+1795703136442,A. Carga Constante (10 usuarios),/contratos/1,200,16.02,True,239
+1795703136449,A. Carga Constante (10 usuarios),/contratos/1,200,13.24,True,239
+1795703136450,A. Carga Constante (10 usuarios),/contratos/1,200,14.63,True,239
+1795703136454,A. Carga Constante (10 usuarios),/contratos/1,200,13.02,True,239
+1795703136448,A. Carga Constante (10 usuarios),/contratos/1,200,23.53,True,239
+1795703136438,A. Carga Constante (10 usuarios),/contratos/1,200,35.83,True,239
+1795703136443,A. Carga Constante (10 usuarios),/contratos/1,200,32.96,True,239
+1795703136458,A. Carga Constante (10 usuarios),/contratos/1,200,18.98,True,239
+1795703136462,A. Carga Constante (10 usuarios),/contratos/1,200,18.06,True,239
+1795703136467,A. Carga Constante (10 usuarios),/contratos/1,200,18.2,True,239
+1795703136465,A. Carga Constante (10 usuarios),/contratos/1,200,20.6,True,239
+1795703136454,A. Carga Constante (10 usuarios),/contratos/1,200,32.67,True,239
+1795703136472,A. Carga Constante (10 usuarios),/contratos/1,200,16.89,True,239
+1795703136477,A. Carga Constante (10 usuarios),/contratos/1,200,18.23,True,239
+1795703136476,A. Carga Constante (10 usuarios),/contratos/1,200,20.07,True,239
+1795703136474,A. Carga Constante (10 usuarios),/contratos/1,200,22.68,True,239
+1795703136480,A. Carga Constante (10 usuarios),/contratos/1,200,19.38,True,239
+1795703136485,A. Carga Constante (10 usuarios),/contratos/1,200,18.05,True,239
+1795703136422,A. Carga Constante (10 usuarios),/contratos/1,200,82.36,True,239
+1795703136486,A. Carga Constante (10 usuarios),/contratos/1,200,21.45,True,239
+1795703136488,A. Carga Constante (10 usuarios),/contratos/1,200,21.05,True,239
+1795703136423,A. Carga Constante (10 usuarios),/contratos/1,200,89.05,True,239
+1795703136487,A. Carga Constante (10 usuarios),/contratos/1,200,28.11,True,239
+1795703136495,A. Carga Constante (10 usuarios),/contratos/1,200,20.37,True,239
+1795703136496,A. Carga Constante (10 usuarios),/contratos/1,200,20.49,True,239
+1795703136497,A. Carga Constante (10 usuarios),/contratos/1,200,21.08,True,239
+1795703136507,A. Carga Constante (10 usuarios),/contratos/1,200,13.32,True,239
+1795703136504,A. Carga Constante (10 usuarios),/contratos/1,200,16.95,True,239
+1795703136503,A. Carga Constante (10 usuarios),/contratos/1,200,18.99,True,239
+1795703136499,A. Carga Constante (10 usuarios),/contratos/1,200,24.47,True,239
+1795703136510,A. Carga Constante (10 usuarios),/contratos/1,200,17.85,True,239
+1795703138662,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,35.23,True,239
+1795703138659,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,13.51,True,239
+1795703138666,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,37.04,True,239
+1795703138673,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,78.74,True,239
+1795703138661,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,21.78,True,239
+1795703138664,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,32.93,True,239
+1795703138659,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,8.54,True,239
+1795703138670,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,74.84,True,239
+1795703138665,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,43.18,True,239
+1795703138670,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,79.18,True,239
+1795703138662,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,23.11,True,239
+1795703138669,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,67.3,True,239
+1795703138667,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,77.65,True,239
+1795703138660,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,20.1,True,239
+1795703138667,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,78.58,True,239
+1795703138659,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,7.77,True,239
+1795703138668,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,68.51,True,239
+1795703138663,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,34.07,True,239
+1795703138664,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,46.63,True,239
+1795703138661,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,19.19,True,239
+1795703138680,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,134.66,True,239
+1795703138680,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,134.75,True,239
+1795703138681,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,135.83,True,239
+1795703138682,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,136.14,True,239
+1795703138684,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,135.0,True,239
+1795703138682,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,137.93,True,239
+1795703138685,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,136.72,True,239
+1795703138686,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,142.37,True,239
+1795703138686,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,143.48,True,239
+1795703138687,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,144.75,True,239
+1795703138688,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,145.47,True,239
+1795703138688,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,146.09,True,239
+1795703138690,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,146.11,True,239
+1795703138689,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,148.43,True,239
+1795703138691,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,156.65,True,239
+1795703138692,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,157.19,True,239
+1795703138693,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,158.0,True,239
+1795703138694,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,159.94,True,239
+1795703138694,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,162.16,True,239
+1795703138695,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,163.29,True,239
+1795703138696,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,164.03,True,239
+1795703138697,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,167.41,True,239
+1795703138698,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,167.95,True,239
+1795703138698,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,170.25,True,239
+1795703138698,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,179.28,True,239
+1795703138697,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,182.03,True,239
+1795703138701,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,179.43,True,239
+1795703138700,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,181.53,True,239
+1795703138701,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,199.95,True,239
+1795703138702,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,200.14,True,239
+1795703138702,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,204.99,True,239
+1795703138703,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,208.72,True,239
+1795703138705,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,210.58,True,239
+1795703138706,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,210.31,True,239
+1795703138704,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,213.41,True,239
+1795703138707,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,231.95,True,239
+1795703138709,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,232.29,True,239
+1795703138708,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,237.23,True,239
+1795703138711,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,236.68,True,239
+1795703138711,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,238.46,True,239
+1795703138710,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,241.29,True,239
+1795703138709,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,244.25,True,239
+1795703138711,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,257.62,True,239
+1795703138712,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,257.66,True,239
+1795703138713,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,260.03,True,239
+1795703138714,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,261.81,True,239
+1795703138715,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,261.71,True,239
+1795703138715,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,262.28,True,239
+1795703138716,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,264.89,True,239
+1795703138716,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,279.53,True,239
+1795703138717,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,278.76,True,239
+1795703138717,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,279.77,True,239
+1795703138718,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,280.43,True,239
+1795703138720,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,279.16,True,239
+1795703138721,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,279.84,True,239
+1795703138727,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,276.03,True,239
+1795703138728,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,289.45,True,239
+1795703138733,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,285.52,True,239
+1795703138730,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,290.46,True,239
+1795703138735,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,287.43,True,239
+1795703138736,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,289.95,True,239
+1795703138735,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,291.63,True,239
+1795703138741,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,288.78,True,239
+1795703138743,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,337.54,True,239
+1795703138745,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,336.6,True,239
+1795703138741,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,341.24,True,239
+1795703138747,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,338.65,True,239
+1795703138746,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,340.77,True,239
+1795703138746,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,346.33,True,239
+1795703138746,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,347.79,True,239
+1795703138748,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,382.03,True,239
+1795703138749,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,385.14,True,239
+1795703138749,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,386.7,True,239
+1795703138751,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,386.05,True,239
+1795703138752,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,389.2,True,239
+1795703138751,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,391.79,True,239
+1795703138753,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,391.65,True,239
+1795703138761,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,391.59,True,239
+1795703138762,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,392.34,True,239
+1795703138763,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,394.18,True,239
+1795703138764,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,395.54,True,239
+1795703138766,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,395.5,True,239
+1795703138762,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,400.93,True,239
+1795703138766,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,401.95,True,239
+1795703138767,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,411.63,True,239
+1795703138768,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,412.2,True,239
+1795703138769,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,415.09,True,239
+1795703138768,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,417.12,True,239
+1795703138769,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,419.19,True,239
+1795703138770,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,421.86,True,239
+1795703138770,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,424.39,True,239
+1795703138674,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,524.63,True,239
+1795703138673,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,526.98,True,239
+1795703138685,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,518.41,True,239
+1795703138771,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,441.39,True,239
+1795703138773,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,440.35,True,239
+1795703138774,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,440.8,True,239
+1795703138776,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,440.73,True,239
+1795703138776,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,441.51,True,239
+1795703138776,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,443.32,True,239
+1795703138777,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,445.76,True,239
+1795703138777,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,450.0,True,239
+1795703138778,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,450.83,True,239
+1795703138778,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,452.54,True,239
+1795703138779,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,456.97,True,239
+1795703138779,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,457.65,True,239
+1795703138780,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,459.56,True,239
+1795703138780,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,461.42,True,239
+1795703138780,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,463.63,True,239
+1795703138781,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,465.28,True,239
+1795703138781,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,467.08,True,239
+1795703138782,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,468.91,True,239
+1795703138782,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,470.42,True,239
+1795703138783,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,470.89,True,239
+1795703138783,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,478.65,True,239
+1795703138784,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,479.09,True,239
+1795703138784,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,481.89,True,239
+1795703138785,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,482.47,True,239
+1795703138784,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,483.93,True,239
+1795703138788,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,482.32,True,239
+1795703138790,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,483.5,True,239
+1795703138790,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,485.72,True,239
+1795703138791,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,486.39,True,239
+1795703138792,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,488.15,True,239
+1795703138793,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,491.34,True,239
+1795703138793,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,491.81,True,239
+1795703138794,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,492.62,True,239
+1795703138794,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,493.39,True,239
+1795703138794,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,494.66,True,239
+1795703138795,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,496.08,True,239
+1795703138795,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,497.66,True,239
+1795703138795,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,499.5,True,239
+1795703138796,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,500.07,True,239
+1795703138796,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,501.05,True,239
+1795703138796,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,506.43,True,239
+1795703138797,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,507.4,True,239
+1795703138798,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,509.72,True,239
+1795703138798,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,510.97,True,239
+1795703138798,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,511.51,True,239
+1795703138799,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,512.08,True,239
+1795703138799,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,512.69,True,239
+1795703138799,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,513.53,True,239
+1795703138801,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,512.49,True,239
+1795703138800,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,514.76,True,239
+1795703138801,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,516.28,True,239
+1795703138800,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,517.7,True,239
+1795703138802,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,517.4,True,239
+1795703138802,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,518.0,True,239
+1795703138802,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,518.3,True,239
+1795703138803,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,520.21,True,239
+1795703138814,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,510.51,True,239
+1795703138815,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,511.0,True,239
+1795703138816,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,510.51,True,239
+1795703138818,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,509.97,True,239
+1795703138819,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,511.49,True,239
+1795703138820,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,511.1,True,239
+1795703138822,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,510.36,True,239
+1795703138828,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,504.57,True,239
+1795703138830,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,504.11,True,239
+1795703138832,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,502.79,True,239
+1795703138833,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,502.6,True,239
+1795703138834,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,502.42,True,239
+1795703138836,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,501.34,True,239
+1795703138838,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,501.12,True,239
+1795703138848,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,494.46,True,239
+1795703138850,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,493.86,True,239
+1795703138851,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,493.57,True,239
+1795703138856,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,489.14,True,239
+1795703138854,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,492.51,True,239
+1795703138865,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,482.4,True,239
+1795703138866,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,481.84,True,239
+1795703138860,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,489.33,True,239
+1795703138868,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,481.92,True,239
+1795703138877,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,473.52,True,239
+1795703138879,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,473.46,True,239
+1795703138880,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,472.83,True,239
+1795703138901,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,452.46,True,239
+1795703138902,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,452.79,True,239
+1795703138858,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,499.44,True,239
+1795703138907,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,451.71,True,239
+1795703138881,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,478.77,True,239
+1795703138912,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,449.52,True,239
+1795703138915,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,447.28,True,239
+1795703138916,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,446.86,True,239
+1795703138918,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,447.38,True,239
+1795703138939,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,426.72,True,239
+1795703138941,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,425.83,True,239
+1795703138945,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,422.87,True,239
+1795703138948,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,421.37,True,239
+1795703138950,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,420.08,True,239
+1795703138951,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,419.22,True,239
+1795703138953,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,418.63,True,239
+1795703138969,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,404.76,True,239
+1795703138970,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,406.11,True,239
+1795703138973,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,407.5,True,239
+1795703138976,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,404.9,True,239
+1795703138976,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,406.39,True,239
+1795703138977,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,406.14,True,239
+1795703138980,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,404.15,True,239
+1795703138996,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,390.22,True,239
+1795703138996,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,390.73,True,239
+1795703138997,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,392.46,True,239
+1795703138998,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,391.54,True,239
+1795703138999,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,392.19,True,239
+1795703139001,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,392.6,True,239
+1795703139003,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,391.49,True,239
+1795703139017,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,378.01,True,239
+1795703139019,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,377.62,True,239
+1795703139021,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,376.99,True,239
+1795703139022,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,376.42,True,239
+1795703139026,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,373.44,True,239
+1795703139027,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,373.58,True,239
+1795703139030,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,371.46,True,239
+1795703139080,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,321.96,True,239
+1795703139081,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,322.52,True,239
+1795703139083,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,322.81,True,239
+1795703139085,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,321.12,True,239
+1795703139087,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,320.71,True,239
+1795703139093,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,316.61,True,239
+1795703139094,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,316.31,True,239
+1795703139130,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,281.31,True,239
+1795703139134,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,278.41,True,239
+1795703139136,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,277.63,True,239
+1795703139141,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,273.35,True,239
+1795703139137,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,279.66,True,239
+1795703139144,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,274.03,True,239
+1795703139143,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,277.06,True,239
+1795703139152,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,268.04,True,239
+1795703139154,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,267.47,True,239
+1795703139160,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,263.81,True,239
+1795703139157,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,267.4,True,239
+1795703139162,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,264.48,True,239
+1795703139163,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,263.69,True,239
+1795703139168,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,259.37,True,239
+1795703139179,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,250.78,True,239
+1795703139180,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,250.6,True,239
+1795703139184,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,248.11,True,239
+1795703139185,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,248.04,True,239
+1795703139188,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,246.47,True,239
+1795703139194,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,242.02,True,239
+1795703139192,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,245.03,True,239
+1795703139199,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,240.31,True,239
+1795703139200,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,241.7,True,239
+1795703139204,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,239.86,True,239
+1795703139212,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,233.27,True,239
+1795703139214,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,233.01,True,239
+1795703139215,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,232.88,True,239
+1795703139216,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,233.15,True,239
+1795703139218,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,232.79,True,239
+1795703139220,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,231.64,True,239
+1795703139223,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,229.95,True,239
+1795703139227,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,226.35,True,239
+1795703139229,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,226.84,True,239
+1795703139231,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,228.09,True,239
+1795703139236,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,225.11,True,239
+1795703139237,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,224.88,True,239
+1795703139239,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,223.25,True,239
+1795703139244,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,218.91,True,239
+1795703139246,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,217.64,True,239
+1795703139241,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,223.31,True,239
+1795703139249,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,216.99,True,239
+1795703139251,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,214.98,True,239
+1795703139254,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,213.34,True,239
+1795703139252,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,215.39,True,239
+1795703139262,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,207.53,True,239
+1795703139263,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,207.33,True,239
+1795703139265,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,205.95,True,239
+1795703139267,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,206.44,True,239
+1795703139268,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,207.32,True,239
+1795703139270,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,207.01,True,239
+1795703139273,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,204.12,True,239
+1795703139276,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,202.13,True,239
+1795703139278,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,201.28,True,239
+1795703139280,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,199.64,True,239
+1795703139284,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,197.54,True,239
+1795703139285,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,197.23,True,239
+1795703139286,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,196.53,True,239
+1795703139287,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,196.04,True,239
+1795703139289,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,195.22,True,239
+1795703139291,B1. Estrés Concurrencia Alta (150 hilos en /contratos/1),/contratos/1,200,194.35,True,239
+1795703140664,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4010.16,False,0
+1795703140664,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4011.79,False,0
+1795703140665,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4012.26,False,0
+1795703140665,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4013.18,False,0
+1795703140665,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4014.15,False,0
+1795703140666,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4015.19,False,0
+1795703140666,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4016.48,False,0
+1795703140667,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4016.77,False,0
+1795703140667,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4017.33,False,0
+1795703140668,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4017.49,False,0
+1795703140668,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4018.0,False,0
+1795703140669,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4018.49,False,0
+1795703140670,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4019.47,False,0
+1795703140670,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4021.45,False,0
+1795703140672,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4020.46,False,0
+1795703140673,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4019.76,False,0
+1795703140675,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4020.17,False,0
+1795703140675,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4019.94,False,0
+1795703140676,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4020.94,False,0
+1795703140676,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4021.11,False,0
+1795703140677,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4021.19,False,0
+1795703140678,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4021.09,False,0
+1795703140678,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4021.54,False,0
+1795703140679,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4021.66,False,0
+1795703140679,B2. Estrés sobre Endpoint con Retención (25 hilos en /clientes),/clientes,401,4021.99,False,0
+1795703146869,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,110.95,True,239
+1795703146868,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,94.74,True,239
+1795703146863,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,75.28,True,239
+1795703146857,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,72.27,True,239
+1795703146865,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,108.88,True,239
+1795703146859,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,68.44,True,239
+1795703146866,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,103.09,True,239
+1795703146846,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,29.69,True,239
+1795703146847,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,51.28,True,239
+1795703146850,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,56.47,True,239
+1795703146849,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,53.19,True,239
+1795703146867,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,97.12,True,239
+1795703146856,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,54.04,True,239
+1795703146841,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,7.57,True,239
+1795703146865,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,110.04,True,239
+1795703146858,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,55.48,True,239
+1795703146866,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,100.51,True,239
+1795703146861,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,81.73,True,239
+1795703146842,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,10.67,True,239
+1795703146855,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,56.32,True,239
+1795703146843,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,13.47,True,239
+1795703146846,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,48.42,True,239
+1795703146842,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,19.9,True,239
+1795703146860,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,74.63,True,239
+1795703146845,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,31.61,True,239
+1795703146844,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,26.81,True,239
+1795703146862,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,79.54,True,239
+1795703146871,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,109.21,True,239
+1795703146849,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,54.67,True,239
+1795703146844,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,31.6,True,239
+1795703146852,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,56.13,True,239
+1795703146843,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,15.17,True,239
+1795703146864,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,114.8,True,239
+1795703146862,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,77.25,True,239
+1795703146863,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,114.12,True,239
+1795703146859,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,67.53,True,239
+1795703146851,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,57.53,True,239
+1795703146873,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,132.49,True,239
+1795703146879,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,128.58,True,239
+1795703146878,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,130.3,True,239
+1795703146878,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,130.83,True,239
+1795703146877,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,133.33,True,239
+1795703146877,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,134.64,True,239
+1795703146877,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,135.3,True,239
+1795703146874,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,139.05,True,239
+1795703146875,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,138.89,True,239
+1795703146872,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,142.83,True,239
+1795703146880,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,152.46,True,239
+1795703146881,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,152.44,True,239
+1795703146881,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,153.27,True,239
+1795703146882,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,154.64,True,239
+1795703146882,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,155.98,True,239
+1795703146883,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,157.84,True,239
+1795703146883,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,158.33,True,239
+1795703146884,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,159.1,True,239
+1795703146884,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,159.78,True,239
+1795703146885,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,160.16,True,239
+1795703146885,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,174.54,True,239
+1795703146887,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,173.72,True,239
+1795703146887,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,173.96,True,239
+1795703146888,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,174.06,True,239
+1795703146889,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,174.16,True,239
+1795703146890,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,173.92,True,239
+1795703146890,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,174.14,True,239
+1795703146891,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,174.37,True,239
+1795703146891,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,174.66,True,239
+1795703146892,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,174.71,True,239
+1795703146892,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,181.4,True,239
+1795703146893,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,181.56,True,239
+1795703146893,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,181.9,True,239
+1795703146894,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,182.18,True,239
+1795703146894,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,182.56,True,239
+1795703146895,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,182.59,True,239
+1795703146895,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,182.58,True,239
+1795703146896,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,182.85,True,239
+1795703146896,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,183.06,True,239
+1795703146897,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,183.32,True,239
+1795703146898,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,187.67,True,239
+1795703146898,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,188.06,True,239
+1795703146899,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,189.13,True,239
+1795703146899,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,190.56,True,239
+1795703146900,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,190.66,True,239
+1795703146901,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,190.84,True,239
+1795703146902,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,190.89,True,239
+1795703146904,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,189.96,True,239
+1795703146905,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,189.22,True,239
+1795703146905,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,190.4,True,239
+1795703146907,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,190.36,True,239
+1795703146906,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,191.81,True,239
+1795703146907,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,191.21,True,239
+1795703146909,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,190.03,True,239
+1795703146910,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,190.47,True,239
+1795703146909,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,191.58,True,239
+1795703146910,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,191.19,True,239
+1795703146911,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,191.64,True,239
+1795703146912,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,192.65,True,239
+1795703146913,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,192.82,True,239
+1795703146912,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,195.38,True,239
+1795703146914,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,194.17,True,239
+1795703146914,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,194.27,True,239
+1795703146915,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,194.07,True,239
+1795703146915,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,195.57,True,239
+1795703146916,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,194.48,True,239
+1795703146916,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,195.79,True,239
+1795703146917,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,195.46,True,239
+1795703146917,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,195.65,True,239
+1795703146919,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,195.4,True,239
+1795703146918,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,197.28,True,239
+1795703146921,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,194.8,True,239
+1795703146922,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,194.66,True,239
+1795703146923,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,194.74,True,239
+1795703146924,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,194.04,True,239
+1795703146925,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,194.23,True,239
+1795703146926,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,194.8,True,239
+1795703146927,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,195.35,True,239
+1795703146928,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,195.37,True,239
+1795703146927,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,196.5,True,239
+1795703146928,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,197.65,True,239
+1795703146930,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,196.61,True,239
+1795703146929,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,198.39,True,239
+1795703146931,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,197.55,True,239
+1795703146931,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,197.61,True,239
+1795703146932,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,198.14,True,239
+1795703146933,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,198.15,True,239
+1795703146935,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,196.71,True,239
+1795703146934,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,198.36,True,239
+1795703146935,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,197.93,True,239
+1795703146933,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,201.24,True,239
+1795703146937,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,197.47,True,239
+1795703146938,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,197.71,True,239
+1795703146939,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,198.16,True,239
+1795703146941,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,197.24,True,239
+1795703146942,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,197.11,True,239
+1795703146943,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,197.7,True,239
+1795703146942,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,199.27,True,239
+1795703146943,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,198.82,True,239
+1795703146944,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,199.29,True,239
+1795703146944,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,200.08,True,239
+1795703146945,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,200.15,True,239
+1795703146946,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,199.47,True,239
+1795703146946,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,200.88,True,239
+1795703146947,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,200.54,True,239
+1795703146947,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,200.9,True,239
+1795703146949,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,200.23,True,239
+1795703146948,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,201.43,True,239
+1795703146949,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,201.29,True,239
+1795703146949,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,201.72,True,239
+1795703146950,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,202.49,True,239
+1795703146951,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,202.93,True,239
+1795703146951,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,203.78,True,239
+1795703146952,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,204.77,True,239
+1795703146952,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,205.28,True,239
+1795703146954,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,204.97,True,239
+1795703146957,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,202.64,True,239
+1795703146957,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,202.84,True,239
+1795703146959,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,202.17,True,239
+1795703146959,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,202.36,True,239
+1795703146960,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,203.14,True,239
+1795703146960,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,204.26,True,239
+1795703146960,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,204.39,True,239
+1795703146961,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,204.13,True,239
+1795703146962,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,204.34,True,239
+1795703146963,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,204.22,True,239
+1795703146964,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,204.13,True,239
+1795703146964,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,205.09,True,239
+1795703146965,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,204.09,True,239
+1795703146965,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,205.66,True,239
+1795703146964,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,208.37,True,239
+1795703146967,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,207.12,True,239
+1795703146967,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,207.65,True,239
+1795703146967,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,208.16,True,239
+1795703146969,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,207.35,True,239
+1795703146968,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,209.11,True,239
+1795703146971,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,207.01,True,239
+1795703146973,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,205.24,True,239
+1795703146972,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,207.76,True,239
+1795703146974,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,206.42,True,239
+1795703146974,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,207.6,True,239
+1795703146975,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,207.2,True,239
+1795703146977,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,206.14,True,239
+1795703146977,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,206.69,True,239
+1795703146980,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,205.16,True,239
+1795703146980,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,205.35,True,239
+1795703146981,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,206.12,True,239
+1795703146982,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,206.86,True,239
+1795703146982,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,208.19,True,239
+1795703146982,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,208.61,True,239
+1795703146983,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,209.09,True,239
+1795703146984,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,209.44,True,239
+1795703146985,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,209.99,True,239
+1795703146986,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,209.77,True,239
+1795703146987,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,209.96,True,239
+1795703146988,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,209.74,True,239
+1795703146988,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,209.9,True,239
+1795703146989,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,209.88,True,239
+1795703146990,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,209.56,True,239
+1795703146990,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,209.54,True,239
+1795703146991,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,210.55,True,239
+1795703146992,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,210.14,True,239
+1795703146993,C. Prueba de Pico / Spike (200 usuarios simultáneos),/contratos/1,200,211.08,True,239
