@@ -38,3 +38,55 @@ jobs:
         run: |
           cd BACKEND
           npm ci
+          npm audit --audit-level=high
+
+      - name: "2.4 Build y SCA Frontend (npm ci + npm audit)"
+        run: |
+          cd FRONTEND
+          npm ci
+          npm audit --audit-level=high
+
+  sast_eslint_auditor:
+    name: "3. SAST (ESLint 9 + Auditor Transversal)"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "3.1 Checkout del código fuente"
+        uses: actions/checkout@v4
+
+      - name: "3.2 Configurar Node.js 20 y Python 3.12"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: "3.3 Instalar dependencias para ESLint"
+        run: |
+          cd BACKEND && npm ci
+          cd ../FRONTEND && npm ci
+
+      - name: "3.4 Ejecutar Auditor SAST Transversal y generar reporte HTML"
+        run: |
+          python "Unidad 3/auditor_transversal_atlas.py" "."
+
+      - name: "3.5 Publicar Reporte SAST como Artifact"
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reporte-sast-atlas
+          path: "Unidad 3/reporte_auditoria_transversal_atlas.html"
+
+      - name: "3.6 SAST: ESLint 9 Backend y Frontend (Fail Fast Gate)"
+        run: |
+          cd BACKEND && npx eslint .
+          cd ../FRONTEND && npx eslint .
+
+  deploy_gate_fail_fast:
+    name: "4. DAST & Deploy Staging (Bloqueo Fail Fast)"
+    needs: [ secrets_gitleaks, build_sca, sast_eslint_auditor ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: "4.1 Despliegue autorizado solo si se superan todos los Security Gates"
+        run: echo "Todos los controles Shift-Left (Secrets, SCA, SAST) aprobados. Despliegue a Staging autorizado."
